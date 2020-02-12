@@ -1,0 +1,73 @@
+site_name: SEC555 Wiki
+site_description: 'SANS SEC555 Class Wiki'
+site_author: 'Justin Henderson'
+
+nav:
+  - Home: 
+    - 'Home': 'index.md'
+  - Setup:  
+    - 'Setup Quick Nav': 'Labs/setup/quicknav.md'
+    - 'Setup A': 'Labs/setup/A/sec555.setup.a.md'
+    - 'Setup B': 'Labs/setup/B/sec555.setup.b.md'
+  - Labs:
+    - 'Lab Quick Nav': 'Labs/quicknav.md'
+    - 555.1:
+      - 'Lab 1.0 - Labs Overview': 'Labs/555_1/0/sec555.1.0.md'
+      - 'Lab 1.1 - Introduction to SOF-ELK': 'Labs/555_1/1/sec555.1.1.md'
+    - 555.2:
+      - 'Lab 2.1 - TEST': 'Labs/555_2/1/sec555.2.1.md'
+#      - 555.3:
+#      - 555.4:
+#      - 555.5:
+
+#theme: readthedocs
+theme:
+  name: 'material'
+#  palette:
+#    primary: 'white'
+#    accent: 'indigo'
+#  logo:
+#   icon: 'imgs/sans-logo.png:'
+#    icon: 'dashboard'
+  feature:
+    tabs: true
+#  font: false
+#  include_sidebar: false
+  custom_dir: './material'
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      toc_depth: "1-5"
+#      permalink: true
+# per https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+#  - pymdownx.emoji:
+#      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+plugins:
+    - search
+    - minify:
+        minify_html: true
+#    - pdf-export:
+#          verbose: false
+#          media_type: print
+#          combined: false
+          #combined_output_path: 508-workbook.pdf
+#          enabled_if_env: ENABLE_PDF_EXPORT
+extra_css:
+#  - css/pdf.css
+  - css/html.css

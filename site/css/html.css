@@ -1,0 +1,60 @@
+.codehilite {
+    font-weight: bold;
+}
+
+code {
+    font-weight: bold;
+}
+
+#topheading {
+    background-color: darkblue;
+    font-style: italic;
+    text-shadow: 3px 2px #000000;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    color: black;	
+    background-color: lightblue;
+    font-weight: bold;
+    border-style: double;
+    border-color: lightblue;
+    border-width: thick;
+}
+
+h3 {
+    color: black;	
+    background-color: lightgray;
+    border-style: double;
+    border-color: lightgray;
+    border-width: thick;
+}
+
+img[src*="#100"] {
+   width:100px;
+}
+
+img[src*="#150"] {
+    width:150px;
+}
+
+img[src*="#200"] {
+    width:200px;
+}
+
+img[src*="#300"] {
+    width:300px;
+}
+
+img[src*="#400"] {
+    width:400px;
+}
+
+img[src*="#500"] {
+    width:500px;
+}
+
+img[src*="#600"] {
+    width:600px;
+}

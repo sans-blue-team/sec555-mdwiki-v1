@@ -1,0 +1,520 @@
+
+<!DOCTYPE doctype html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<meta content="SANS SEC555 Class Wiki" name="description"/>
+<meta content="Justin Henderson" name="author"/>
+<meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+<meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+<meta content="en" name="lang:search.language"/>
+<meta content="True" name="lang:search.pipeline.stopwords"/>
+<meta content="True" name="lang:search.pipeline.trimmer"/>
+<meta content="No matching documents" name="lang:search.result.none"/>
+<meta content="1 matching document" name="lang:search.result.one"/>
+<meta content="# matching documents" name="lang:search.result.other"/>
+<meta content="[\s\-]+" name="lang:search.tokenizer"/>
+<link href="../../../../assets/images/favicon.png" rel="shortcut icon"/>
+<meta content="mkdocs-1.0.4, mkdocs-material-4.4.0" name="generator"/>
+<title>Lab 1.1 - Introduction to SOF-ELK - SEC555 Wiki</title>
+<link href="../../../../assets/stylesheets/application.0284f74d.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/application-palette.01803549.css" rel="stylesheet"/>
+<meta content="" name="theme-color"/>
+<script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+<link href="../../../../assets/fonts/material-icons.css" rel="stylesheet"/>
+<link href="../../../../css/pdf.css" rel="stylesheet"/>
+<link href="../../../../css/html.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="white" dir="ltr">
+<svg class="md-svg">
+<defs>
+</defs>
+</svg>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+<a class="md-skip" href="#objectives" tabindex="1">
+        Skip to content
+      </a>
+<header class="md-header" data-md-component="header">
+<nav class="md-header-nav md-grid">
+<div class="md-flex">
+<div class="md-flex__cell md-flex__cell--shrink">
+<a class="md-header-nav__button md-logo" href="../../../.." title="SEC555 Wiki">
+<i class="md-icon">dashboard</i>
+</a>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch">
+<div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
+              SEC555 Wiki
+            </span>
+<span class="md-header-nav__topic">
+              
+                Lab 1.1 - Introduction to SOF-ELK
+              
+            </span>
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-icon md-search__icon" for="__search"></label>
+<button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+        
+      </button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="result">
+<div class="md-search-result__meta">
+            Type to start searching
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container">
+<main class="md-main">
+<div class="md-main__inner md-grid" data-md-component="container">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title md-nav__title--site" for="__drawer">
+<a class="md-nav__button md-logo" href="../../../.." title="SEC555 Wiki">
+<i class="md-icon">dashboard</i>
+</a>
+    SEC555 Wiki
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../.." title="Home">
+      Home
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-toggle md-nav__toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
+      555.1
+    </label>
+<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
+        555.1
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../0/sec555.1.0/" title="Lab 1.0 - Labs Overview">
+      Lab 1.0 - Labs Overview
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./" title="Lab 1.1 - Introduction to SOF-ELK">
+      Lab 1.1 - Introduction to SOF-ELK
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset"><a class="md-icon md-content__icon" download href="sec555.1.1.pdf" title="PDF Export"></a>
+<p><link href="../../../../Videos/555_1/1/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../Videos/555_1/1/lab1.1_embed.css" rel="stylesheet" type="text/css"/></link></p>
+<h1 id="topheading">Lab 1.1 - Introduction to SIEM Architecture</h1>
+<h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>Be comfortable with using the Elastic Stack</p>
+</li>
+<li>
+<p>Establish a high-level understanding of SIEM architecture</p>
+</li>
+<li>
+<p>Learn how to collect logs manually</p>
+</li>
+<li>
+<p>Interact with the various components of a SIEM</p>
+</li>
+<li>
+<p>Use an alert engine to create an alert</p>
+</li>
+</ul>
+<h2 id="exercise-preparation">Exercise Preparation<a class="headerlink" href="#exercise-preparation" title="Permanent link">¶</a></h2>
+<p>Log into the Sec-555 VM</p>
+<ul>
+<li>
+<p>Username: student</p>
+</li>
+<li>
+<p>Password: sec555</p>
+</li>
+</ul>
+<p><img alt="" src="../media/image1.png"/> </p>
+<p>The overall objective of this lab is to learn the various components of a SIEM by using them. Installation of each component has already been performed, and all configuration files have been pre-built.</p>
+<p><strong>Logstash</strong> (log aggregator) configuration files are in <strong>/labs/1.1/files/</strong></p>
+<p><strong>Filebeat</strong> has been preconfigured for this lab and can be run using the command below. This is informational is for students who want to know how to run filebeat for the no hints version. <strong>If you are doing the step-by-step walkthrough ignore this command until you are asked to run it in the walkthrough.</strong></p>
+<div class="codehilite"><pre><span></span>filebeat -c /labs/1.1/filebeat.yml
+</pre></div>
+<p>This lab deals with reading logs from <strong>/var/log/</strong> on your student virtual machine. Thus, the number of logs represented, and the timestamps will not match the pictures in the step-by-step instructions.</p>
+<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">¶</a></h2>
+<p>Before starting the lab, you must start <strong>RabbitMQ</strong>, a message broker used for temporary buffering of logs. Start the <strong>RabbitMQ</strong> (log broker) service using the command below.  </p>
+<div class="codehilite"><pre><span></span>docker start rabbitmq
+</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These services are not started by default to save system resources. In a production environment, this would be configured to start automatically.</p>
+</div>
+<p><strong>1.</strong> Send logs from <strong>/var/log/*.log</strong> to <strong>Logstash</strong> (log aggregator) using <strong>Filebeat</strong> (log agent). Output logs to the screen</p>
+<details class="tip"><summary>Solution</summary><p>If you have not already done so, you must start <strong>RabbitMQ</strong>, a message broker used for temporary buffering of logs. Start the <strong>RabbitMQ</strong> (log broker) service using the command below.  </p>
+<div class="codehilite"><pre><span></span>docker start rabbitmq
+</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These services are not started by default to save system resources. In a production environment, this would be configured to start automatically.</p>
+</div>
+<p>In this section, the config files will pick up logs using <strong>Filebeat</strong> and send them to <strong>Logstash</strong>, which will only display them to the screen. This demonstrates a log agent sending logs to a central location.</p>
+<p>To send logs from a log agent to a log aggregator, the log aggregator must first be running. The Elastic Stack uses <strong>Logstash</strong> as a log aggregator, but for this class, Logstash is not set up as a service. Manually run <strong>Logstash</strong> and have it use the configuration file called <strong>debug.conf</strong>. Do this by running the command below.</p>
+<div class="codehilite"><pre><span></span>logstash -f /labs/1.1/files/debug.conf
+</pre></div>
+<p>Wait until you see "<strong>Pipeline running</strong>." The output will reflect as below. Moving forward only the last line of "<strong>Pipelines running</strong>" will be shown.  </p>
+<div class="codehilite"><pre><span></span><span class="nx">Sending</span> <span class="nx">Logstash</span><span class="s1">'s logs to /usr/share/logstash/logs which is now configured via log4j2.properties</span>
+<span class="s1">[2018-05-20T19:49:48,765][INFO ][logstash.modules.scaffold] Initializing module {:module_name=&gt;"netflow", :directory=&gt;"/usr/share/logstash/modules/netflow/configuration"}</span>
+<span class="s1">[2018-05-20T19:49:48,785][INFO ][logstash.modules.scaffold] Initializing module {:module_name=&gt;"fb_apache", :directory=&gt;"/usr/share/logstash/modules/fb_apache/configuration"}</span>
+<span class="s1">[2018-05-20T19:49:48,950][INFO ][logstash.setting.writabledirectory] Creating directory {:setting=&gt;"path.queue", :path=&gt;"/usr/share/logstash/data/queue"}</span>
+<span class="s1">[2018-05-20T19:49:48,955][INFO ][logstash.setting.writabledirectory] Creating directory {:setting=&gt;"path.dead_letter_queue", :path=&gt;"/usr/share/logstash/data/dead_letter_queue"}</span>
+<span class="s1">[2018-05-20T19:49:49,410][WARN ][logstash.config.source.multilocal] Ignoring the '</span><span class="nx">pipelines</span><span class="p">.</span><span class="nx">yml</span><span class="err">'</span> <span class="nx">file</span> <span class="nx">because</span> <span class="nx">modules</span> <span class="nx">or</span> <span class="nx">command</span> <span class="nx">line</span> <span class="nx">options</span> <span class="nx">are</span> <span class="nx">specified</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">49</span><span class="o">:</span><span class="mi">49</span><span class="p">,</span><span class="mi">458</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">agent</span>           <span class="p">]</span> <span class="nx">No</span> <span class="nx">persistent</span> <span class="nx">UUID</span> <span class="nx">file</span> <span class="nx">found</span><span class="p">.</span> <span class="nx">Generating</span> <span class="k">new</span> <span class="nx">UUID</span> <span class="p">{</span><span class="o">:</span><span class="nx">uuid</span><span class="p">=&gt;</span><span class="s2">"defed98f-d0b1-4416-a0c8-ba498d60105e"</span><span class="p">,</span> <span class="o">:</span><span class="nx">path</span><span class="p">=&gt;</span><span class="s2">"/usr/share/logstash/data/uuid"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">49</span><span class="o">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">079</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">runner</span>          <span class="p">]</span> <span class="nx">Starting</span> <span class="nx">Logstash</span> <span class="p">{</span><span class="s2">"logstash.version"</span><span class="p">=&gt;</span><span class="s2">"6.2.2"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">49</span><span class="o">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">469</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">agent</span>           <span class="p">]</span> <span class="nx">Successfully</span> <span class="nx">started</span> <span class="nx">Logstash</span> <span class="nx">API</span> <span class="nx">endpoint</span> <span class="p">{</span><span class="o">:</span><span class="nx">port</span><span class="p">=&gt;</span><span class="mi">9600</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">00</span><span class="p">,</span><span class="mi">136</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">pipeline</span>        <span class="p">]</span> <span class="nx">Starting</span> <span class="nx">pipeline</span> <span class="p">{</span><span class="o">:</span><span class="nx">pipeline_id</span><span class="p">=&gt;</span><span class="s2">"main"</span><span class="p">,</span> <span class="s2">"pipeline.workers"</span><span class="p">=&gt;</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"pipeline.batch.size"</span><span class="p">=&gt;</span><span class="mi">125</span><span class="p">,</span> <span class="s2">"pipeline.batch.delay"</span><span class="p">=&gt;</span><span class="mi">50</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">00</span><span class="p">,</span><span class="mi">528</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">filters</span><span class="p">.</span><span class="nx">geoip</span>   <span class="p">]</span> <span class="nx">Using</span> <span class="nx">geoip</span> <span class="nx">database</span> <span class="p">{</span><span class="o">:</span><span class="nx">path</span><span class="p">=&gt;</span><span class="s2">"/usr/share/logstash/vendor/bundle/jruby/2.3.0/gems/logstash-filter-geoip-5.0.3-java/vendor/GeoLite2-City.mmdb"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">00</span><span class="p">,</span><span class="mi">552</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">filters</span><span class="p">.</span><span class="nx">geoip</span>   <span class="p">]</span> <span class="nx">Using</span> <span class="nx">geoip</span> <span class="nx">database</span> <span class="p">{</span><span class="o">:</span><span class="nx">path</span><span class="p">=&gt;</span><span class="s2">"/usr/share/logstash/vendor/bundle/jruby/2.3.0/gems/logstash-filter-geoip-5.0.3-java/vendor/GeoLite2-ASN.mmdb"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">00</span><span class="p">,</span><span class="mi">916</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">beats</span>    <span class="p">]</span> <span class="nx">Beats</span> <span class="nx">inputs</span><span class="o">:</span> <span class="nx">Starting</span> <span class="nx">input</span> <span class="nx">listener</span> <span class="p">{</span><span class="o">:</span><span class="nx">address</span><span class="p">=&gt;</span><span class="s2">"0.0.0.0:5044"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">00</span><span class="p">,</span><span class="mi">983</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">pipeline</span>        <span class="p">]</span> <span class="nx">Pipeline</span> <span class="nx">started</span> <span class="nx">succesfully</span> <span class="p">{</span><span class="o">:</span><span class="nx">pipeline_id</span><span class="p">=&gt;</span><span class="s2">"main"</span><span class="p">,</span> <span class="o">:</span><span class="nx">thread</span><span class="p">=&gt;</span><span class="s2">"#&lt;Thread:0x7fefa656 run&gt;"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">01</span><span class="p">,</span><span class="mi">046</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">org</span><span class="p">.</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">beats</span><span class="p">.</span><span class="nx">Server</span><span class="p">]</span> <span class="nx">Starting</span> <span class="nx">server</span> <span class="nx">on</span> <span class="nx">port</span><span class="o">:</span> <span class="mi">5044</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T19</span><span class="o">:</span><span class="mi">50</span><span class="o">:</span><span class="mi">01</span><span class="p">,</span><span class="mi">125</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">agent</span>           <span class="p">]</span> <span class="nx">Pipelines</span> <span class="nx">running</span> <span class="p">{</span><span class="o">:</span><span class="nx">count</span><span class="p">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="o">:</span><span class="nx">pipelines</span><span class="p">=&gt;[</span><span class="s2">"main"</span><span class="p">]}</span>
+</pre></div>
+<p>This means that <strong>Logstash</strong> is running. Next, open a new terminal that will be used to demonstrate a log agent. To do this, left click on the purple terminal icon at the top of the screen.  </p>
+<p><img alt="" src="../media/image2.png"/></p>
+<p>This terminal will be referred to as the <strong>Agent Terminal</strong>. The next steps are to be performed on the <strong>Agent Terminal</strong>. This is used to visually distinguish between <strong>Logstash</strong>, a log aggregator on the <strong>black terminal</strong>, and <strong>Filebeat</strong>, a log agent on the purple terminal. Typically, <strong>Filebeat</strong> would be running on a remote machine. In the <strong>Agent Terminal</strong>, run <strong>Filebeat</strong> using the command below.  </p>
+<div class="codehilite"><pre><span></span>filebeat -c /labs/1.1/filebeat.yml
+</pre></div>
+<p>Switch back to the <strong>black terminal,</strong> and you should see that <strong>Logstash</strong> has accepted the logs sent from Filebeat. The output should look like the image below but <strong>WILL NOT</strong> be the same. The logs and timestamps will be specific to your system.  </p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+         <span class="s2">"syslog_severity"</span> <span class="p">=&gt;</span> <span class="s2">"notice"</span><span class="p">,</span>
+                    <span class="s2">"tags"</span> <span class="p">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="s2">"beats_input_codec_plain_applied"</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="s2">"_grokparsefailure"</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="s2">"_geoip_lookup_failure"</span>
+    <span class="p">],</span>
+                    <span class="s2">"host"</span> <span class="p">=&gt;</span> <span class="s2">"filebeat"</span><span class="p">,</span>
+                 <span class="s2">"message"</span> <span class="p">=&gt;</span> <span class="s2">"2018-04-26 18:25:33 trigproc mime-support:all 3.60ubuntu1 &lt;none&gt;"</span><span class="p">,</span>
+                  <span class="s2">"source"</span> <span class="p">=&gt;</span> <span class="s2">"/var/log/dpkg.log"</span><span class="p">,</span>
+    <span class="s2">"syslog_facility_code"</span> <span class="p">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"@version"</span> <span class="p">=&gt;</span> <span class="s2">"1"</span><span class="p">,</span>
+                    <span class="s2">"beat"</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="s2">"name"</span> <span class="p">=&gt;</span> <span class="s2">"filebeat"</span><span class="p">,</span>
+        <span class="s2">"hostname"</span> <span class="p">=&gt;</span> <span class="s2">"filebeat"</span><span class="p">,</span>
+         <span class="s2">"version"</span> <span class="p">=&gt;</span> <span class="s2">"6.2.4"</span>
+    <span class="p">},</span>
+                  <span class="s2">"offset"</span> <span class="p">=&gt;</span> <span class="mi">1019662</span><span class="p">,</span>
+              <span class="s2">"@timestamp"</span> <span class="p">=&gt;</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T20</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mf">20.895</span><span class="nx">Z</span><span class="p">,</span>
+              <span class="s2">"prospector"</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="s2">"type"</span> <span class="p">=&gt;</span> <span class="s2">"log"</span>
+    <span class="p">},</span>
+    <span class="s2">"syslog_severity_code"</span> <span class="p">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+         <span class="s2">"syslog_facility"</span> <span class="p">=&gt;</span> <span class="s2">"user-level"</span>
+<span class="p">}</span>
+</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Outputting logs to the screen can be helpful for debugging. That is what this step is demonstrating.</p>
+</div>
+<p>Within the <strong>black terminal</strong>, hit <strong>CTRL + C</strong> to stop <strong>Logstash</strong>. You will receive a "<strong>Pipeline has terminated</strong>" message such as below. Moving forward only the last line of "<strong>Pipeline has terminated</strong>" will be referenced.  </p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T20</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mi">28</span><span class="p">,</span><span class="mi">261</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">runner</span>          <span class="p">]</span> <span class="nx">Received</span> <span class="nx">shutdown</span> <span class="nx">signal</span><span class="p">,</span> <span class="nx">but</span> <span class="nx">pipeline</span> <span class="nx">is</span> <span class="nx">still</span> <span class="nx">waiting</span> <span class="k">for</span> <span class="k">in</span><span class="o">-</span><span class="nx">flight</span> <span class="nx">events</span>
+<span class="nx">to</span> <span class="nx">be</span> <span class="nx">processed</span><span class="p">.</span> <span class="nx">Sending</span> <span class="nx">another</span> <span class="o">^</span><span class="nx">C</span> <span class="nx">will</span> <span class="nx">force</span> <span class="nx">quit</span> <span class="nx">Logstash</span><span class="p">,</span> <span class="nx">but</span> <span class="k">this</span> <span class="nx">may</span> <span class="nx">cause</span> <span class="nx">data</span> <span class="nx">loss</span><span class="p">.</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T20</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mi">28</span><span class="p">,</span><span class="mi">544</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">shutdownwatcher</span> <span class="p">]</span> <span class="p">{</span><span class="s2">"inflight_count"</span><span class="p">=&gt;</span><span class="mi">0</span><span class="p">,</span>  <span class="nx">stalling_thread_info</span><span class="s2">"=&gt;{"</span><span class="nx">other</span><span class="s2">"=&gt;[{"</span><span class="nx">thread_id</span><span class="s2">"=&gt;36, "</span><span class="nx">name</span><span class="s2">"=&gt;"</span><span class="p">[</span><span class="nx">main</span><span class="p">]</span><span class="o">&lt;</span><span class="nx">beats</span><span class="s2">", "</span><span class="nx">current_call</span><span class="s2">"=&gt;"</span><span class="p">[...]</span><span class="o">/</span><span class="nx">vendor</span><span class="o">/</span><span class="nx">bundle</span><span class="o">/</span><span class="nx">jruby</span><span class="o">/</span><span class="mf">2.3.0</span><span class="o">/</span><span class="nx">gems</span><span class="o">/</span><span class="nx">logstash</span><span class="o">-</span><span class="nx">input</span><span class="o">-</span><span class="nx">beats</span><span class="o">-</span><span class="mf">5.0.6</span><span class="o">-</span><span class="nx">java</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">logstash</span><span class="o">/</span><span class="nx">inputs</span><span class="o">/</span><span class="nx">beats</span><span class="p">.</span><span class="nx">rb</span><span class="o">:</span><span class="mi">199</span><span class="o">:</span><span class="k">in</span> <span class="sb">`run'"}], ["LogStash::Filters::GeoIP", {"default_database_type"=&gt;"ASN", "source"=&gt;"source_ip", "id"=&gt;"f3af272bc6887631c19738e0819932a4c0de091b7e111f5826c9cba98f476e86"}]=&gt;[{"thread_id"=&gt;31, "name"=&gt;nil, "current_call"=&gt;"[...]/logstash-core/lib/logstash/util/wrapped_synchronous_queue.rb:90:in `</span><span class="nx">read_batch</span><span class="s1">'"}, {"thread_id"=&gt;32, "name"=&gt;nil, "current_call"=&gt;"[...]/logstash-core/lib/logstash/util/wrapped_synchronous_queue.rb:90:in `read_batch'</span><span class="s2">"}, {"</span><span class="nx">thread_id</span><span class="s2">"=&gt;33, "</span><span class="nx">name</span><span class="s2">"=&gt;nil, "</span><span class="nx">current_call</span><span class="s2">"=&gt;"</span><span class="p">[...]</span><span class="o">/</span><span class="nx">logstash</span><span class="o">-</span><span class="nx">core</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">logstash</span><span class="o">/</span><span class="nx">util</span><span class="o">/</span><span class="nx">wrapped_synchronous_queue</span><span class="p">.</span><span class="nx">rb</span><span class="o">:</span><span class="mi">90</span><span class="o">:</span><span class="k">in</span> <span class="sb">`read_batch'"}, {"thread_id"=&gt;34, "name"=&gt;nil, "current_call"=&gt;"[...]/logstash-core/lib/logstash/util/wrapped_synchronous_queue.rb:90:in `</span><span class="nx">read_batch</span><span class="err">'</span><span class="s2">"}]}}</span>
+<span class="s2">[2018-05-20T20:17:32,078][INFO ][logstash.pipeline        ] Pipeline has terminated {:pipeline_id=&gt;"</span><span class="nx">main</span><span class="s2">", :thread=&gt;"</span><span class="err">#</span><span class="o">&lt;</span><span class="nx">Thread</span><span class="o">:</span><span class="mh">0x1c5a3ccb</span> <span class="nx">run</span><span class="o">&gt;</span><span class="err">"</span><span class="p">}</span>
+</pre></div>
+<p>Switch back to the <strong>Agent Terminal</strong> and hit <strong>CTRL + C</strong> to stop <strong>Filebeat</strong>. <strong>Filebeat</strong> will not display anything when stopped. Instead, it will simply terminate.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not continue unless you have stopped <strong>Filebeat</strong> by pressing <strong>CTRL + C</strong>. The student VM will not let you run two instances of <strong>Filebeat</strong> at the same time.</p>
+</div>
+</details>
+<p><strong>2.</strong> Send logs from <strong>/var/log/*.log</strong> to <strong>Logstash</strong> using <strong>Filebeat</strong> and output logs to <strong>Elasticsearch</strong> (storage) in an index called <strong>lab1.1-aggregator_only</strong></p>
+<details class="tip"><summary>Solution</summary><p>In this section, the config files will pick up logs using <strong>Filebeat</strong> and send them to <strong>Logstash</strong>, which will then forward the logs to <strong>Elasticsearch</strong> for storage. This demonstrates a log agent sending logs to a central location which in turn parses and stores the logs.</p>
+<p>Switch back to the <strong>black terminal</strong> and run <strong>Logstash</strong> with the <strong>aggregator_only.conf</strong> configuration file. Do this by running the command below. <span class="underline">This is a single line command</span>.</p>
+<div class="codehilite"><pre><span></span>logstash -f /labs/1.1/files/aggregator_only.conf
+</pre></div>
+<p>Wait until you see "<strong>Pipeline running</strong>." Switch back to the <strong>Agent Terminal</strong> and run <strong>Filebeat</strong> using the command below.  </p>
+<div class="codehilite"><pre><span></span>filebeat -c /labs/1.1/filebeat.yml
+</pre></div>
+<p>This time, the <strong>black terminal</strong> will not show logs. This is because they are being sent directly to <strong>Elasticsearch</strong>, the back-end storage system. If logs are properly received, then an index called <strong>lab1.1-aggregator_only</strong> should be created and contain all the logs <strong>Filebeat</strong> sent. There are multiple ways to see if logs were accepted and the index was created. One method is to use a web-based management tool. Most SIEMs provide a GUI method for this. For <strong>Elasticsearch</strong>, you can use <strong>Marvel</strong>, scripts, or community plugins such as <strong>Cerebro</strong>. This lab uses <strong>Cerebro</strong>. First, open <strong>Firefox</strong>.  </p>
+<p><img alt="" src="../media/image3.png"/> </p>
+<p>In <strong>Firefox</strong>, switch to <strong>Cerebro</strong> by clicking on it in the <strong>Bookmarks Toolbar</strong>. <strong>Cerebro</strong> is a GUI management interface for monitoring and changing <strong>Elasticsearch</strong>.  </p>
+<p><img alt="" src="../media/image4.png"/></p>
+<p>The page displayed is a web front end to manage <strong>Elasticsearch</strong> settings and indexes. The names reflected in the columns are index names. These are placeholders for similar logs and are covered in more detail throughout the course.  </p>
+<p><img alt="" src="../media/image5.png"/> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Indexes are special files that split logs across shards. If this terminology makes your head hurt, then think of an index as a traditional database. Under the hood, a shard operates differently than a traditional database but conceptually is similar. At the time this screenshot was taken, the <strong>elastalert_status</strong> index had <strong>0</strong> logs. You can tell this by looking at the number of docs found immediately under the index name. This index is a special index that stores alerts. Your student VM may have some alerts pre-generated in the <strong>elastalert_status</strong>.</p>
+</div>
+<p>When searching for indices in <strong>Cerebro,</strong> you might have to click on the arrows to see the <strong>lab1.1-aggregator_only</strong> index or type <strong>1.1</strong> in the <strong>filter indices by name</strong> search bar. Type <strong>1.1</strong> in the <strong>filter indices by name or alias</strong> bar.</p>
+<p><img alt="" src="../media/image6.png"/> </p>
+<p>Go back to the <strong>black terminal</strong> and hit <strong>CTRL + C</strong> to stop <strong>Logstash</strong>.  </p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T02</span><span class="o">:</span><span class="mi">25</span><span class="o">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">161</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">runner</span>          <span class="p">]</span> <span class="nx">SIGINT</span> <span class="nx">received</span><span class="p">.</span> <span class="nx">Shutting</span> <span class="nx">down</span><span class="p">.</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T02</span><span class="o">:</span><span class="mi">25</span><span class="o">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">600</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">pipeline</span>        <span class="p">]</span> <span class="nx">Pipeline</span> <span class="nx">has</span> <span class="nx">terminated</span> <span class="p">{</span><span class="o">:</span><span class="nx">pipeline_id</span><span class="p">=&gt;</span><span class="s2">"main"</span><span class="p">,</span> <span class="o">:</span><span class="nx">thread</span><span class="p">=&gt;</span><span class="s2">"#&lt;Thread:0x4aeac31f run&gt;"</span><span class="p">}</span>
+</pre></div>
+<p>Switch back to the <strong>Agent Terminal</strong> and hit <strong>CTRL + C</strong> to stop <strong>Filebeat</strong>. <strong>Filebeat</strong> will not display anything when stopped. Instead, it will simply terminate.</p>
+</details>
+<p><strong>3.</strong> View logs from the <strong>lab1.1-aggregator_only</strong> index using <strong>Kibana</strong> (search/report system)</p>
+<details class="tip"><summary>Solution</summary><p>In this section, the <strong>Kibana</strong> is used to view the logs stored in <strong>Elasticsearch</strong>. This demonstrates the ability to search and  report on logs once they have been collected.  </p>
+<p>While still in <strong>Firefox</strong>, <strong>click</strong> on the <strong>Kibana</strong> bookmark.  </p>
+<p><img alt="" src="../media/image7.png"/> </p>
+<p>To see logs from a new index, you must tell <strong>Kibana</strong> about the index. To do this, <strong>click</strong> on <strong>Management</strong>.  </p>
+<p><img alt="" src="../media/image8.png"/> </p>
+<p>Next, <strong>click</strong> on <strong>Index Patterns</strong>.  </p>
+<p><img alt="" src="../media/image9.png"/> </p>
+<p>Then <strong>click</strong> on <strong>Create Index Pattern</strong>.  </p>
+<p><img alt="" src="../media/image10.png"/> </p>
+<p>In the <strong>Index pattern</strong> field, enter the index name of <code>lab1.1-aggregator\_only</code>. Then <strong>click</strong> on <strong>Next step</strong>. </p>
+<p><img alt="" src="../media/image11.png"/> </p>
+<p>Then select the <strong>Time Filter field name</strong> and <strong>click</strong> on <strong>@timestamp</strong> and <strong>click</strong> <strong>Create index pattern</strong>.  </p>
+<p><img alt="" src="../media/image12.png"/></p>
+<p>Now you can switch back to the <strong>Discover</strong> tab by <strong>clicking</strong> on <strong>Discover</strong>.</p>
+<p><img alt="" src="../media/image13.png"/> </p>
+<p>Then select <strong>lab1.1-aggregator_only</strong> as your index to view the logs.</p>
+<p><img alt="" src="../media/image14.png"/> </p>
+<p>You should now see the logs you have collected.  </p>
+<p><img alt="" src="../media/image15.png"/> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you cannot see any logs, it may be that the logs are older than the last 15 minutes. This is the default time span selected in <strong>Kibana</strong>. You can change this by clicking on the <strong>date picker</strong> in the top right corner. This will allow you to pick a longer period such as the <strong>Last 5 years</strong>.  </p>
+</div>
+<p><img alt="" src="../media/image16.png"/></p>
+</details>
+<p><strong>4.</strong> Send logs from <strong>/var/log/*.log</strong> to <strong>Logstash</strong> using <strong>Filebeat</strong> and output logs to <strong>RabbitMQ</strong> (log broker)</p>
+<details class="tip"><summary>Solution</summary><p>Sending logs directly to backend storage solutions is not a good idea. If <strong>Logstash</strong> or <strong>[insert your commercial solution here]</strong> is taking too long to process the logs, then you could end up with a loss of logs. Instead, send them to a log broker such as <strong>RabbitMQ</strong>. Do this by starting <strong>Logstash</strong> using the <strong>aggregator_to_broker.conf</strong> configuration file. Switch back to the <strong>black terminal</strong> and run the command below. <span class="underline">This command is a single line command</span>. </p>
+<div class="codehilite"><pre><span></span>logstash -f /labs/1.1/files/aggregator_to_broker.conf
+</pre></div>
+<p>Wait until you see "<strong>Pipeline running</strong>." Switch back to the <strong>Agent Terminal</strong> and run <strong>Filebeat</strong> using the command below.  </p>
+<div class="codehilite"><pre><span></span>filebeat -c /labs/1.1/filebeat.yml
+</pre></div>
+<p>This time, logs should be sent to the log broker rather than <strong>Elasticsearch</strong>. If you switch to your <strong>black terminal,</strong> you may have a warning message like below.  </p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T00</span><span class="o">:</span><span class="mi">27</span><span class="o">:</span><span class="mi">19</span><span class="p">,</span><span class="mi">734</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">outputs</span><span class="p">.</span><span class="nx">rabbitmq</span><span class="p">]</span> <span class="nx">RabbitMQ</span> <span class="nx">connection</span> <span class="nx">blocked</span><span class="o">!</span> <span class="nx">Check</span> <span class="nx">your</span> <span class="nx">RabbitMQ</span> <span class="nx">instance</span><span class="o">!</span> <span class="p">{</span><span class="o">:</span><span class="nx">url</span><span class="p">=&gt;</span><span class="s2">"amqp://student:XXXXXX@rabbitmq:5672/"</span><span class="p">}</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T00</span><span class="o">:</span><span class="mi">27</span><span class="o">:</span><span class="mi">28</span><span class="p">,</span><span class="mi">645</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">outputs</span><span class="p">.</span><span class="nx">rabbitmq</span><span class="p">]</span> <span class="nx">RabbitMQ</span> <span class="nx">connection</span> <span class="nx">unblocked</span><span class="o">!</span> <span class="p">{</span><span class="o">:</span><span class="nx">url</span><span class="p">=&gt;</span><span class="s2">"amqp://student:XXXXXX@rabbitmq:5672/"</span><span class="p">}</span>
+</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is nothing to worry about and is a bonus if it happens. What this is demonstrating is that <strong>Filebeat</strong> sent logs extremely rapidly and <strong>RabbitMQ</strong> throttled the connection due to a hard-coded memory limit. This forced <strong>Logstash</strong> to hold temporarily before sending over more logs. In effect, this is buffering, but in production, this would happen at the log aggregator rather than the message queue.</p>
+</div>
+<p>To see that the logs reached <strong>RabbitMQ</strong>, switch back to <strong>Firefox</strong> and click on the bookmark to <strong>RabbitMQ Management</strong>.  </p>
+<p><img alt="" src="../media/image17.png"/> </p>
+<p>Login with the username <strong>student</strong> and password of <strong>sec555.</strong> </p>
+<p><img alt="" src="../media/image18.png"/> </p>
+<p>The home page shows how many logs are currently in the log broker.  </p>
+<p><img alt="" src="../media/image19.png"/> </p>
+<p>In this case, the quantity is <strong>17,663</strong>. This number <strong><span class="underline">may be different</span></strong> on your system as the configuration file used by <strong>Filebeat</strong> is reading new logs generated in <strong>/var/log/</strong> on your virtual machine. This view is helpful, but it does not break down the logs. Next, <strong>click</strong> on the <strong>Queues</strong> tab.</p>
+<p><img alt="" src="../media/image20.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point, logs are sent unparsed. The goal is to get them into a log broker as quickly as possible to avoid bottlenecks.</p>
+</div>
+<p>This view shows the total number of logs, # of incoming logs, and # of outgoing logs per queue. In this example, only one queue exists. However, a production log broker may have a queue for Windows logs, firewall logs, and any other logs going through the broker.</p>
+<p><img alt="" src="../media/image21.png"/> </p>
+<p>Switch back to the <strong>black terminal</strong> and hit <strong>CTRL + C</strong> to stop <strong>Logstash</strong>.  </p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T02</span><span class="o">:</span><span class="mi">27</span><span class="o">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">161</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">runner</span>          <span class="p">]</span> <span class="nx">SIGINT</span> <span class="nx">received</span><span class="p">.</span> <span class="nx">Shutting</span> <span class="nx">down</span><span class="p">.</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T02</span><span class="o">:</span><span class="mi">27</span><span class="o">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">600</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">pipeline</span>        <span class="p">]</span> <span class="nx">Pipeline</span> <span class="nx">has</span> <span class="nx">terminated</span> <span class="p">{</span><span class="o">:</span><span class="nx">pipeline_id</span><span class="p">=&gt;</span><span class="s2">"main"</span><span class="p">,</span> <span class="o">:</span><span class="nx">thread</span><span class="p">=&gt;</span><span class="s2">"#&lt;Thread:0x4aeac31f run&gt;"</span><span class="p">}</span>
+</pre></div>
+<p>Switch back to the <strong>Agent Terminal</strong> and hit <strong>CTRL + C</strong> to stop <strong>Filebeat</strong>. <strong>Filebeat</strong> will not display anything when stopped. Instead, it will simply terminate. Close out of the <strong>Agent Terminal</strong> by clicking the <strong>X</strong> in the top right corner of the terminal.</p>
+<p><img alt="" src="../media/image22.png"/></p>
+</details>
+<p><strong>5.</strong> Use <strong>Logstash</strong> to pull logs out of <strong>RabbitMQ</strong> and send them to <strong>Elasticsearch</strong> in an index called <strong>lab1.1-broker</strong></p>
+<details class="tip"><summary>Solution</summary><p>In this section, <strong>Logstash</strong> is used to pull logs out of <strong>RabbitMQ</strong> so that they can be parsed and enriched. After parsing and enrichment, logs are sent to <strong>Elasticsearch</strong> for storage. This step demonstrates one or more log aggregators pulling logs out of a log broker for processing.</p>
+<p>The log broker is a temporary queue. It is not intended to be searched or used other than as a buffer. To pull the logs out of <strong>RabbitMQ</strong>, parse them, and then send them off to <strong>Elasticsearch</strong> use the <strong>Logstash</strong> configuration file called <strong>broker_to_storage.conf</strong>. Do this by running the command below.</p>
+<div class="codehilite"><pre><span></span>logstash -f /labs/1.1/files/broker_to_storage.conf
+</pre></div>
+<p>Switch back to <strong>Firefox</strong> and look at the <strong>RabbitMQ</strong> queue for <strong>lab1.1</strong>. After a few seconds, it should show the total logs in the queue at <strong>0</strong>.</p>
+<p><img alt="" src="../media/image23.png"/> </p>
+<p>This means the logs have been retrieved out of the log broker, parsed, and then stored in <strong>Elasticsearch</strong>. You can verify this with <strong>Cerebro</strong> that a new index called <strong>1.1-broker</strong> has been created or you can move on to adding the index to <strong>Kibana</strong>. If you try to add an index to <strong>Kibana</strong> and the index does not exist, it will not let you select a time field.</p>
+<p>Switch back to the <strong>black terminal</strong> and hit <strong>CTRL + C</strong> to stop <strong>Logstash</strong>.  </p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T02</span><span class="o">:</span><span class="mi">30</span><span class="o">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">161</span><span class="p">][</span><span class="nx">WARN</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">runner</span>          <span class="p">]</span> <span class="nx">SIGINT</span> <span class="nx">received</span><span class="p">.</span> <span class="nx">Shutting</span> <span class="nx">down</span><span class="p">.</span>
+<span class="p">[</span><span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="nx">T02</span><span class="o">:</span><span class="mi">30</span><span class="o">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">600</span><span class="p">][</span><span class="nx">INFO</span> <span class="p">][</span><span class="nx">logstash</span><span class="p">.</span><span class="nx">pipeline</span>        <span class="p">]</span> <span class="nx">Pipeline</span> <span class="nx">has</span> <span class="nx">terminated</span> <span class="p">{</span><span class="o">:</span><span class="nx">pipeline_id</span><span class="p">=&gt;</span><span class="s2">"main"</span><span class="p">,</span> <span class="o">:</span><span class="nx">thread</span><span class="p">=&gt;</span><span class="s2">"#&lt;Thread:0x4aeac31f run&gt;"</span><span class="p">}</span>
+</pre></div>
+</details>
+<p><strong>6.</strong> View the logs from the <strong>lab1.1-broker</strong> index using <strong>Kibana</strong></p>
+<details class="tip"><summary>Solution</summary><p>In this section, the <strong>Kibana</strong> is used to view the logs stored in <strong>Elasticsearch</strong>. This demonstrates the ability to search and report on logs once they have been collected.</p>
+<p>Switch to <strong>Firefox</strong> and click on the <strong>Kibana</strong> bookmark.  </p>
+<p><img alt="" src="../media/image7.png"/></p>
+<p>In <strong>Kibana</strong>, <strong>click</strong> on <strong>Management</strong>.</p>
+<p><img alt="" src="../media/image8.png"/></p>
+<p>Next, <strong>click</strong> on <strong>Index Patterns</strong>.  </p>
+<p><img alt="" src="../media/image9.png"/> </p>
+<p>Next, <strong>click</strong> on <strong>Create Index Pattern</strong>.  </p>
+<p><img alt="" src="../media/image10.png"/> </p>
+<p>In the <strong>Index pattern</strong> field, enter the index name of <code>lab1.1-broker</code>. Then <strong>click</strong> on <strong>Next step</strong>.</p>
+<p><img alt="" src="../media/image24.png"/> </p>
+<p>Then select the <strong>Time Filter field name</strong> and <strong>click</strong> on <strong>@timestamp</strong> and <strong>click</strong> <strong>Create index pattern</strong>.  </p>
+<p><img alt="" src="../media/image25.png"/> </p>
+<p>Now you can switch back to the <strong>Discover</strong> tab by <strong>clicking</strong> on <strong>Discover</strong>.  </p>
+<p><img alt="" src="../media/image13.png"/> </p>
+<p>Then select <strong>lab1.1-broker</strong> as your index to view the logs.  </p>
+<p><img alt="" src="../media/image26.png"/> </p>
+<p>You should now see the logs you have collected.  </p>
+<p><img alt="" src="../media/image27.png"/> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you cannot see any logs, it may be that the logs are older than the last 15 minutes. This is the default time span selected in <strong>Kibana</strong>. You can change this by clicking on the <strong>date picker</strong> in the top right corner. This will allow you to pick a longer period such as the <strong>Last 5 years</strong>.  </p>
+</div>
+<p><img alt="" src="../media/image16.png"/></p>
+</details>
+<p><strong>7.</strong> Use <strong>ElastAlert</strong> (alert engine) to test the rule <strong>/labs/1.1/files/lab1.1_frequency.yaml</strong>. This is an example rule that triggers an alert if <strong>sudo</strong> is found in any logs. <strong>ElastAlert</strong> has a utility called <strong>elastalert-test-rule</strong> that can be used to test rules.</p>
+<details class="tip"><summary>Solution</summary><p>In this section, <strong>ElastAlert</strong> is used to generate alerts against logs stored in <strong>Elasticsearch</strong>. This demonstrates how an alert engine functions. In this instance, you are alerting on any logs that contain the string <strong>sudo</strong>.  </p>
+<p>In the black terminal, use the <strong>elastalert-test-rule</strong> utility to test the rule file at <strong>/labs/elastalert/rules/lab1.1_frequency.yaml</strong>. Do this by running the command. <span class="underline">This command is a single line command</span>.</p>
+<div class="codehilite"><pre><span></span>elastalert-test-rule --config /labs/elastalert/config.yaml /labs/1.1/files/lab1.1_frequency.yaml
+</pre></div>
+<p>The output should be like this:  </p>
+<div class="codehilite"><pre><span></span><span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Ignoring</span> <span class="nx">match</span> <span class="k">for</span> <span class="nx">silenced</span> <span class="nx">rule</span> <span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span>
+<span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Ignoring</span> <span class="nx">match</span> <span class="k">for</span> <span class="nx">silenced</span> <span class="nx">rule</span> <span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span>
+<span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Ignoring</span> <span class="nx">match</span> <span class="k">for</span> <span class="nx">silenced</span> <span class="nx">rule</span> <span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span>
+<span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Ignoring</span> <span class="nx">match</span> <span class="k">for</span> <span class="nx">silenced</span> <span class="nx">rule</span> <span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span>
+<span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Ignoring</span> <span class="nx">match</span> <span class="k">for</span> <span class="nx">silenced</span> <span class="nx">rule</span> <span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span>
+
+<span class="nx">Would</span> <span class="nx">have</span> <span class="nx">written</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">documents</span> <span class="nx">to</span> <span class="nx">writeback</span> <span class="nx">index</span> <span class="p">(</span><span class="k">default</span> <span class="nx">is</span> <span class="nx">elastalert_status</span><span class="p">)</span><span class="o">:</span>
+
+<span class="nx">silence</span> <span class="o">-</span> <span class="p">{</span><span class="s1">'rule_name'</span><span class="o">:</span> <span class="s1">'Logs with sudo in them'</span><span class="p">,</span> <span class="s1">'@timestamp'</span><span class="o">:</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">406715</span><span class="p">,</span> <span class="nx">tzinfo</span><span class="o">=</span><span class="nx">tzutc</span><span class="p">()),</span> <span class="s1">'exponent'</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'until'</span><span class="o">:</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">406705</span><span class="p">,</span> <span class="nx">tzinfo</span><span class="o">=</span><span class="nx">tzutc</span><span class="p">())}</span>
+
+<span class="nx">elastalert_status</span> <span class="o">-</span> <span class="p">{</span><span class="s1">'hits'</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'matches'</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'@timestamp'</span><span class="o">:</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">408633</span><span class="p">,</span> <span class="nx">tzinfo</span><span class="o">=</span><span class="nx">tzutc</span><span class="p">()),</span> <span class="s1">'rule_name'</span><span class="o">:</span> <span class="s1">'Logs with sudo in them'</span><span class="p">,</span> <span class="s1">'starttime'</span><span class="o">:</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">949354</span><span class="p">,</span> <span class="nx">tzinfo</span><span class="o">=</span><span class="nx">tzutc</span><span class="p">()),</span> <span class="s1">'endtime'</span><span class="o">:</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">949354</span><span class="p">,</span> <span class="nx">tzinfo</span><span class="o">=</span><span class="nx">tzutc</span><span class="p">()),</span> <span class="s1">'time_taken'</span><span class="o">:</span> <span class="mf">0.4532928466796875</span><span class="p">}</span>
+</pre></div>
+<p>The output above shows the rule would have triggered <strong>6</strong> alerts. This number <strong>may not match</strong> the number on your system as it depends on how many times you have used the command <strong>sudo</strong> on your virtual machine. Scrolling up would show you some of the logs the alert would have triggered on such as this: </p>
+<div class="codehilite"><pre><span></span><span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Alert</span> <span class="k">for</span> <span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span> <span class="nx">at</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T20</span><span class="o">:</span><span class="mi">39</span><span class="o">:</span><span class="mf">59.544</span><span class="nx">Z</span><span class="o">:</span>
+<span class="nx">INFO</span><span class="o">:</span><span class="nx">elastalert</span><span class="o">:</span><span class="nx">Logs</span> <span class="kd">with</span> <span class="nx">sudo</span> <span class="k">in</span> <span class="nx">them</span>
+
+<span class="nx">At</span> <span class="nx">least</span> <span class="mi">1</span> <span class="nx">events</span> <span class="nx">occurred</span> <span class="nx">between</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span> <span class="mi">20</span><span class="o">:</span><span class="mi">34</span> <span class="nx">UTC</span> <span class="nx">and</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span> <span class="mi">20</span><span class="o">:</span><span class="mi">39</span> <span class="nx">UTC</span>
+
+<span class="err">@</span><span class="nx">timestamp</span><span class="o">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="nx">T20</span><span class="o">:</span><span class="mi">39</span><span class="o">:</span><span class="mf">59.544</span><span class="nx">Z</span>
+<span class="err">@</span><span class="nx">version</span><span class="o">:</span> <span class="mi">1</span>
+<span class="nx">_id</span><span class="o">:</span> <span class="nx">ByhHf2MBsMHc5WHbxt3t</span>
+<span class="nx">_index</span><span class="o">:</span> <span class="nx">lab1</span><span class="mf">.1</span><span class="o">-</span><span class="nx">aggregator_only</span><span class="o">-</span><span class="nx">complete</span>
+<span class="nx">_type</span><span class="o">:</span> <span class="nx">doc</span>
+<span class="nx">beat</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"hostname"</span><span class="o">:</span> <span class="s2">"filebeat"</span><span class="p">,</span> 
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"filebeat"</span><span class="p">,</span> 
+    <span class="s2">"version"</span><span class="o">:</span> <span class="s2">"6.2.4"</span>
+<span class="p">}</span>
+<span class="nx">host</span><span class="o">:</span> <span class="nx">filebeat</span>
+<span class="nx">message</span><span class="o">:</span> <span class="nx">Unpacking</span> <span class="nx">sudo</span> <span class="p">(</span><span class="mf">1.8.21</span><span class="nx">p2</span><span class="o">-</span><span class="mi">3</span><span class="nx">ubuntu1</span><span class="p">)</span> <span class="p">...</span>
+<span class="nx">num_hits</span><span class="o">:</span> <span class="mi">6</span>
+<span class="nx">num_matches</span><span class="o">:</span> <span class="mi">6</span>
+<span class="nx">offset</span><span class="o">:</span> <span class="mi">46967</span>
+<span class="nx">prospector</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"log"</span>
+<span class="p">}</span>
+<span class="nx">source</span><span class="o">:</span> <span class="err">/var/log/bootstrap.log</span>
+<span class="nx">syslog_facility</span><span class="o">:</span> <span class="nx">user</span><span class="o">-</span><span class="nx">level</span>
+<span class="nx">syslog_facility_code</span><span class="o">:</span> <span class="mi">1</span>
+<span class="nx">syslog_severity</span><span class="o">:</span> <span class="nx">notice</span>
+<span class="nx">syslog_severity_code</span><span class="o">:</span> <span class="mi">5</span>
+<span class="nx">tags</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">"beats_input_codec_plain_applied"</span><span class="p">,</span> 
+    <span class="s2">"_grokparsefailure"</span><span class="p">,</span> 
+    <span class="s2">"_geoip_lookup_failure"</span>
+<span class="p">]</span> 
+</pre></div>
+</details>
+<p>At the end of this lab, stop <strong>RabbitMQ</strong> with the command below.</p>
+<div class="codehilite"><pre><span></span>docker stop rabbitmq
+</pre></div>
+<h2 id="video"> Step-by-Step Video Instructions </h2>
+<iframe allowfullscreen="" class="tscplayer_inline" frameborder="0" id="embeddedSmartPlayerInstance" mozallowfullscreen="" scrolling="no" src="../../../../Videos/555_1/1/lab1.1_player.html?embedIFrameId=embeddedSmartPlayerInstance" webkitallowfullscreen=""></iframe>
+<h2 id="lab-conclusion">Lab Conclusion<a class="headerlink" href="#lab-conclusion" title="Permanent link">¶</a></h2>
+<p>In this lab, you have experienced the major components and designs of a log pipeline. This included:</p>
+<ul>
+<li>
+<p>Sending logs from a log agent</p>
+</li>
+<li>
+<p>A simple log aggregation collection method without a message broker</p>
+</li>
+<li>
+<p>A more complex log aggregation collection method using a message broker for added resiliency</p>
+</li>
+<li>
+<p>Using a GUI to access and view logs</p>
+</li>
+<li>
+<p>Interacting with an alert engine</p>
+</li>
+</ul>
+<p><strong>Lab 1.1 is now complete</strong>!</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../../0/sec555.1.0/" rel="prev" title="Lab 1.0 - Labs Overview">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Lab 1.0 - Labs Overview
+              </span>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../../../assets/javascripts/application.245445c6.js"></script>
+<script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+</body>
+</html>

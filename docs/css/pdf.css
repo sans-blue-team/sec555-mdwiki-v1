@@ -1,0 +1,38 @@
+.codehilite {
+    font-weight: bold;
+}
+
+h1[id] {
+    string-set: title content();
+}
+
+#video {
+    display: none;
+}
+
+#embeddedSmartPlayerInstance {
+    display: none;
+}
+
+#embeddedSmartPlayerInstance2 {
+    display: none;
+}
+
+@page {
+    size: letter portrait;
+    margin: 25mm 10mm 25mm 10mm;
+    counter-increment: page;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 8pt;
+    white-space: pre;
+    color: grey;
+    @bottom-left {
+        content: 'SEC555 - © 2020 Justin Henderson';
+    }
+    @bottom-center {
+        content: string(title); 
+    }
+    @bottom-right {
+        content: 'Page ' counter(page);
+    }
+}
