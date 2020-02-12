@@ -1,0 +1,5 @@
+site/
+make-pdfs.sh
+pdf/
+.DS_Store
+**/.DS_Store
