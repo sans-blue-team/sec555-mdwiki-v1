@@ -6,6 +6,12 @@
 
 ### [Lab 1.1 - Introduction to SIEM Architecture](555_1/1/sec555.1.1.md)
 
+### [Lab 1.2 - Log Ingestion from Files and Network Connections](555_1/2/sec555.1.2.md)
+
+### [Lab 1.3 - Log Enrichment and Parsing](555_1/3/sec555.1.3.md)
+
+### [Lab 1.4 - Tactical Alerting](555_1/4/sec555.1.4.md)
+
 ## 555.2
 
 ## 555.3
