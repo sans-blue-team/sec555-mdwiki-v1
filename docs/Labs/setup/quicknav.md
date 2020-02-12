@@ -2,6 +2,6 @@
 
 ## Setup
 
-### [Setup A](../setup/A/sec555.setup.a.md)
+### [Lab Setup A - Prerequisites and VM Setup](../setup/A/sec555.setup.a.md)
 
-### [Setup B](../setup/B/sec555.setup.b.md)
+### [Lab Setup B - VMware Bridging](../setup/B/sec555.setup.b.md)
