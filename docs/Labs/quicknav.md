@@ -34,5 +34,7 @@
 
 ### [Lab 4.2 - PowerShell Compromise](555_4/2/sec555.4.2.md)
 
+### [Lab 4.3 - NetFlow Detection](555_4/3/sec555.4.3.md)
+
 ## 555.5
 
