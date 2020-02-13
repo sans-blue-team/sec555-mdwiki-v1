@@ -24,6 +24,8 @@
 
 ### [Lab 3.1 - Windows Log Filtering](555_3/1/sec555.3.1.md)
 
+### [Lab 3.2 - Catching Evil with Windows Logs](555_3/2/sec555.3.2.md)
+
 ## 555.4
 
 ## 555.5

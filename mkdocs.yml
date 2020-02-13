@@ -23,7 +23,7 @@ nav:
       - 'Lab 2.3 - HTTPS Analysis': 'Labs/555_2/3/sec555.2.3.md'
     - 555.3:
       - 'Lab 3.1 - Windows Log Filtering': 'Labs/555_3/1/sec555.3.1.md'
-      #- 'Lab 3.2 - Catching Evil with Windows Logs': 'Labs/555_3/2/sec555.3.2.md'
+      - 'Lab 3.2 - Catching Evil with Windows Logs': 'Labs/555_3/2/sec555.3.2.md'
       #- 'Lab 3.3 - Logon Monitoring': 'Labs/555_3/3/sec555.3.3.md'
     #- 555.4
       #- 'Lab 4.1 - Master Inventory': 'Labs/555_4/1/sec555.4.1.md'
