@@ -25,11 +25,11 @@ nav:
       - 'Lab 3.1 - Windows Log Filtering': 'Labs/555_3/1/sec555.3.1.md'
       - 'Lab 3.2 - Catching Evil with Windows Logs': 'Labs/555_3/2/sec555.3.2.md'
       - 'Lab 3.3 - Logon Monitoring': 'Labs/555_3/3/sec555.3.3.md'
-    #- 555.4
-      #- 'Lab 4.1 - Master Inventory': 'Labs/555_4/1/sec555.4.1.md'
+    - 555.4:
+      - 'Lab 4.1 - Master Inventory': 'Labs/555_4/1/sec555.4.1.md'
       #- 'Lab 4.2 - PowerShell Compromise': 'Labs/555_4/2/sec555.4.2.md'
       #- 'Lab 4.3 - NetFlow Detection': 'Labs/555_4/3/sec555.4.3.md'
-    #- 555.5
+    #- 555.5:
       #- 'Lab 5.1 - Alert Context': 'Labs/555_5/1/sec555.5.1.md'
       #- 'Lab 5.2 - Virtual Tripwires': 'Labs/555_5/2/sec555.5.2.md'
       #- 'Lab 5.3 - Beacon Detection': 'Labs/555_5/3/sec555.5.3.md'
