@@ -16,6 +16,8 @@
 
 ### [Lab 2.1 - Catching the Adversary with DNS](555_2/1/sec555.2.1.md)
 
+### [Lab 2.2 - Investigating HTTP](555_2/2/sec555.2.2.md)
+
 ## 555.3
 
 ## 555.4
