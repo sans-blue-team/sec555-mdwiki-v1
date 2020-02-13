@@ -18,6 +18,8 @@
 
 ### [Lab 2.2 - Investigating HTTP](555_2/2/sec555.2.2.md)
 
+### [Lab 2.3 - HTTPS Analysis](555_2/3/sec555.2.3.md)
+
 ## 555.3
 
 ## 555.4

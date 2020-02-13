@@ -20,7 +20,7 @@ nav:
     - 555.2:
       - 'Lab 2.1 - Catching the Adversary with DNS': 'Labs/555_2/1/sec555.2.1.md'
       - 'Lab 2.2 - Investigating HTTP': 'Labs/555_2/2/sec555.2.2.md'
-      #- 'Lab 2.3 - HTTPS Analysis': 'Labs/555_2/3/sec555.2.3.md'
+      - 'Lab 2.3 - HTTPS Analysis': 'Labs/555_2/3/sec555.2.3.md'
     #- 555.3:
       #- 'Lab 3.1 - Windows Log Filtering': 'Labs/555_3/1/sec555.3.1.md'
       #- 'Lab 3.2 - Catching Evil with Windows Logs': 'Labs/555_3/2/sec555.3.2.md'
