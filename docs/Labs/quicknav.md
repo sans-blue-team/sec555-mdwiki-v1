@@ -41,3 +41,5 @@
 ### [Lab 5.1 - Alert Context](555_5/1/sec555.5.1.md)
 
 ### [Lab 5.2 - Virtual Tripwires](555_5/2/sec555.5.2.md)
+
+### [Lab 5.3 - Beacon Detection](555_5/3/sec555.5.3.md)
