@@ -14,6 +14,8 @@
 
 ## 555.2
 
+### [Lab 2.1 - Catching the Adversary with DNS](555_2/1/sec555.2.1.md)
+
 ## 555.3
 
 ## 555.4
