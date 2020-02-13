@@ -26,6 +26,8 @@
 
 ### [Lab 3.2 - Catching Evil with Windows Logs](555_3/2/sec555.3.2.md)
 
+### [Lab 3.3 - Logon Monitoring](555_3/3/sec555.3.3.md)
+
 ## 555.4
 
 ## 555.5
