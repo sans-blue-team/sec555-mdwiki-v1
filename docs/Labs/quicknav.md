@@ -32,5 +32,7 @@
 
 ### [Lab 4.1 - Master Inventory](555_4/1/sec555.4.1.md)
 
+### [Lab 4.2 - PowerShell Compromise](555_4/2/sec555.4.2.md)
+
 ## 555.5
 
