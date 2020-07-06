@@ -14,6 +14,8 @@
 
 ## 555.2
 
+### [Enrichment Lab - Adding Context](555_2/enrich/enrich.md)
+
 ### [Lab 2.1 - Catching the Adversary with DNS](555_2/1/sec555.2.1.md)
 
 ### [Lab 2.2 - Investigating HTTP](555_2/2/sec555.2.2.md)
@@ -37,6 +39,8 @@
 ### [Lab 4.3 - NetFlow Detection](555_4/3/sec555.4.3.md)
 
 ## 555.5
+
+### [Sigma Lab - MITRE and Universal Alerts](555_5/sigma/sigma.md)
 
 ### [Lab 5.1 - Alert Context](555_5/1/sec555.5.1.md)
 

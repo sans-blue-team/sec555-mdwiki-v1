@@ -1,4 +1,4 @@
-# Lab 1.1 - SIGMA Rules - Security Engineer
+# Lab SIGMA Rules - Security Engineer
 
 ## Objectives
 
@@ -150,7 +150,7 @@ Add the below the line that starts with "realert":
 "mitre": rule_tag,
 ```
 
-**INFO**: The comma behind rule_tag is required
+!!! note The comma behind rule_tag is required
 
 Save the File
 
