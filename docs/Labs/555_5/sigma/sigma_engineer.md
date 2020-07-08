@@ -367,7 +367,7 @@ fi
 ```
 Below is an example of this Heat Map. The more rules you have for a specific MITRE attack, it will gradually change from white to red. 
 
-![](.media/2020-06-30-22-30-06.png)
+![](./media/2020-07-02-14-04-15.png)
 
 ## Lab Conclusion
 
