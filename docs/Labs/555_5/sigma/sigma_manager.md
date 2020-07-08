@@ -125,7 +125,7 @@ The script ran through all of the Sigma rules provided by Sigmac and converted t
 
 You should now have a heatmap.json file located in `/lab/sigma/elastalert`. You can now take this file and open it in the Att&ck Navigator that we have been using to show our data source visibility. Below is the alert coverage the SIGMAC tool provided us based on the SIGMA rules we had. 
 
-![](./media/2020-07-02-14-04-15.png)
+![](./media/2020-07-02-13-44-41.png)
 
 This is very helpful when trying to evaluate what alert rules you have in place and you can quickly flip back and forth between your data source visibility layers to determine if you have the data to be able to create detection rules agianst. 
 
