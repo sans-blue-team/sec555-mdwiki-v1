@@ -163,16 +163,17 @@ code /lab/sigma/tools/sigma/backends/elasticsearch.py
 ```
 
 Press CTRL + g and then type in 965. Press Enter
-
+![](./media/code1.png)
 Add the following below the line that starts with "realert":
 
 ```bash
 "mitre": rule_tag,
 ```
+![](./media/code2.png)
 !!! note The comma behind rule_tag is required
 
 Save the File
-
+![](./media/code3.png)
 Now that we have modified this file lets go back and rerun the conversion tool for the rule.
 
 **ElastAlert** 
