@@ -108,25 +108,48 @@ While SIGMA provides a standardized structure for detection rules to be written,
 **Elasticsearch**
 
 ```yaml
-cd /lab/sigma
+cd /lab/sigma/tools
 
-tools/sigmac -I -t es-rule -c tools/config/winlogbeat.yml rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+sigmac -I -t es-rule -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
+*Output
+```yaml
+{"description": "Detects suspicious scripting in WMI Event Consumers", "enabled": true, "false_positives": ["Administrative scripts"], "filters": [], "from": "now-360s", "immutable": false, "index": ["winlogbeat-*"], "interval": "5m", "rule_id": "suspicious_scripting_in_a_wmi_consumer", "language": "lucene", "output_index": ".siem-signals-default", "max_signals": 100, "risk_score": 73, "name": "Suspicious Scripting in a WMI Consumer", "query": "(winlog.channel:\"Microsoft\\-Windows\\-Sysmon\\/Operational\" AND winlog.event_id:\"20\" AND Destination.keyword:(*new\\-object\\ system.net.webclient\\).downloadstring\\(* OR *new\\-object\\ system.net.webclient\\).downloadfile\\(* OR *new\\-object\\ net.webclient\\).downloadstring\\(* OR *new\\-object\\ net.webclient\\).downloadfile\\(* OR *\\ iex\\(* OR *WScript.shell* OR *\\ \\-nop\\ * OR *\\ \\-noprofile\\ * OR *\\ \\-decode\\ * OR *\\ \\-enc\\ *))", "references": ["https://in.security/an-intro-into-abusing-and-identifying-wmi-event-subscriptions-for-persistence/", "https://github.com/Neo23x0/signature-base/blob/master/yara/gen_susp_lnk_files.yar#L19"], "meta": {"from": "1m"}, "severity": "high", "tags": ["attack.t1086", "attack.execution"], "to": "now", "type": "query", "threat": [{"tactic": {"id": "TA0002", "reference": "https://attack.mitre.org/tactics/TA0002", "name": "Execution"}, "framework": "MITRE ATT&CK", "technique": [{"id": "T1086", "name": "PowerShell", "reference": "https://attack.mitre.org/techniques/T1086"}]}], "version": 1}
 
+```
 **ElastAlert** 
 
 ```yaml
-cd /lab/sigma
+cd /lab/sigma/tools
 
-tools/sigmac -I -t elastalert -c tools/config/winlogbeat.yml rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+sigmac -I -t elastalert -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
-
+*Output
+```yaml
+alert:
+- debug
+description: Detects suspicious scripting in WMI Event Consumers
+filter:
+- query:
+    query_string:
+      query: (winlog.channel:"Microsoft\-Windows\-Sysmon\/Operational" AND winlog.event_id:"20" AND Destination.keyword:(*new\-object\ system.net.webclient\).downloadstring\(* OR *new\-object\ system.net.webclient\).downloadfile\(* OR *new\-object\ net.webclient\).downloadstring\(* OR *new\-object\ net.webclient\).downloadfile\(* OR *\ iex\(* OR *WScript.shell* OR *\ \-nop\ * OR *\ \-noprofile\ * OR *\ \-decode\ * OR *\ \-enc\ *))
+index: winlogbeat-*
+name: fe21810c-2a8c-478f-8dd3-5a287fb2a0e0_0
+priority: 2
+realert:
+  minutes: 0
+type: any
+```
 **Splunk**
 
 ```yaml
-cd /lab/sigma
+cd /lab/sigma/tools
 
-/opt/sigma$ tools/sigmac -I -t splunk -c tools/config/splunk-windows.yml rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+sigmac -I -t splunk -c /labs/sigma/tools/config/splunk-windows.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+```
+*Output
+```yaml
+(source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode="20" (Destination="*new-object system.net.webclient).downloadstring(*" OR Destination="*new-object system.net.webclient).downloadfile(*" OR Destination="*new-object net.webclient).downloadstring(*" OR Destination="*new-object net.webclient).downloadfile(*" OR Destination="* iex(*" OR Destination="*WScript.shell*" OR Destination="* -nop *" OR Destination="* -noprofile *" OR Destination="* -decode *" OR Destination="* -enc *")) | table CommandLine,ParentCommandLine
 ```
 
 As you can see as you run the command you receive the converted rule as a text output to the screen. Depending on the solution you chose, you would be able to create the rule in SIEM solution. 
@@ -136,49 +159,29 @@ As you can see as you run the command you receive the converted rule as a text o
 In the first section of this lab, we reviewed a SIGMA rule and compared it to an ElastAlert rule after it had been converted. One of the core differences was that the ElastAlert rule no longer contained the MITRE Attack tags. This is a valuable piece of information. Now let us fix Sigmac to bring over the MITRE tag enrichment. 
 
 ```bash
-cd /lab/sigma/tools/sigma/backends
-code elasticsearch.py
+code /lab/sigma/tools/sigma/backends/elasticsearch.py
 ```
 
-Press CTRL + g and then type in 965 
+Press CTRL + g and then type in 965. Press Enter
 
-Press Enter
-
-Add the below the line that starts with "realert":
+Add the following below the line that starts with "realert":
 
 ```bash
 "mitre": rule_tag,
 ```
-
 !!! note The comma behind rule_tag is required
 
 Save the File
 
 Now that we have modified this file lets go back and rerun the conversion tool for the rule.
 
-**Elasticsearch**
-
-```
-cd /lab/sigma
-tools/sigmac -I -t es-rule -c tools/config/winlogbeat.yml rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
-```
-
 **ElastAlert** 
 
 ```
-cd /lab/sigma
-tools/sigmac -I -t elastalert -c tools/config/winlogbeat.yml rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+cd /lab/sigma/tools
+sigmac -I -t elastalert -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
-
-**Splunk**
-
-```
-cd /lab/sigma
-/opt/sigma$ tools/sigmac -I -t splunk -c tools/config/splunk-windows.yml rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
-```
-
-You should now see an output similar to the ElastAlert rule below that now contains the MITRE Attack tagging which will enrich this alert during threat hunting. 
-
+*Output
 ```yaml
 alert:
 - debug
@@ -197,6 +200,7 @@ realert:
   minutes: 0
 type: any
 ```
+Your rule should now contain the MITRE Attack tagging which will enrich this alert during threat hunting.
 
 ### Establish a process for mass rule management
 
