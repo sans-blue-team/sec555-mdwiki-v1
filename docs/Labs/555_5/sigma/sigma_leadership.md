@@ -1,8 +1,8 @@
-# Lab 1.1 - SIGMA Rules - Security Manager
+# Lab 1.1 - SIGMA Rules - Leadership
 
 ## Objectives
 
-- Learn how to map out your visability in your environment
+- Learn how to map out your visibility in your environment
 
 - Compare and contrast the difference Sysmon can make
 

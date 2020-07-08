@@ -76,13 +76,13 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
     - search
-    - minify:
-        minify_html: true
+#    - minify:
+#        minify_html: true
 #    - pdf-export:
 #          verbose: false
 #          media_type: print
 #          combined: false
-          #combined_output_path: 508-workbook.pdf
+#          combined_output_path: 508-workbook.pdf
 #          enabled_if_env: ENABLE_PDF_EXPORT
 extra_css:
 #  - css/pdf.css

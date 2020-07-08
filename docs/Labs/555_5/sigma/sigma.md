@@ -1,0 +1,18 @@
+Welcome to the Sigma lab. Choose your destiny. Please pick one of the labs below.
+
+!!! note
+    This lab is the format is beta. It is a new design to test letting individuals choose a lab that conforms better to their job role. The goal is to pick one lab to perform during class. You have enough time to complete one lab exercise. The other lab(s) are to be performed at your leisure at a later time.
+
+**Role**: Engineer
+
+**Objective**: Mass implement new rules that are easy to maintain and have MITRE context
+
+
+[Sigma Lab - Engineer](sigma_engineer.md)
+
+**Role**: Leadership
+
+**Objective**: Identify visibility and alert gaps and prioritize alert focus
+
+
+[Sigma Lab - Engineer](sigma_engineer.md)

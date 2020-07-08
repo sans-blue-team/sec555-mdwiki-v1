@@ -195,6 +195,10 @@ At this point, basic geoip information is now appended to the logs. The geoip in
 
 At this point there still is not enough information to decide if either of these alerts are malicious or suspicious. The external IP addresses could belong to Google or Amazon. However, they also could belong to someone using Google or Amazon's hosted cloud environments.
 
+### Pull in DNS Query
+
+
+
 ## Lab Conclusion
 
 

@@ -67,13 +67,13 @@ level: high
 
 **Key Components**
 
-- Tags - Includes the MITRE Attack mappings
-- Log Source - Defines the type of log data this rule is written for
-- Detection - Provides the core of the rule by including the syntax that the rule will alert on
-- Fields - Lists the field names that will be queried in the detection syntax 
-- Level - Sets a user-defined rating on the severity if this rule is triggered
+- **Tags** - Includes the MITRE Attack mappings
+- **Log Source** - Defines the type of log data this rule is written for
+- **Detection** - Provides the core of the rule by including the syntax that the rule will alert on
+- **Fields** - Lists the field names that will be queried in the detection syntax 
+- **Level** - Sets a user-defined rating on the severity if this rule is triggered
 
-Below is the rule after it has been converted to ElastAlert format.
+The major benefit of a generic signature format is that the signature is designed to convert into a tool specific format. For example, below is the above rule after it has been converted to ElastAlert format.
 
 ```yaml
 alert:
@@ -91,40 +91,44 @@ realert:
 type: any
 ```
 
-As you can see, this rule still contains the core information provided by the SIGMA rule above, but the format has changed drastically.
+As you can see, this rule still contains the core information provided by the SIGMA rule above, but the format has changed drastically. Instead of being generic, the rule now is specific to ElastAlert and functions as an automated alert.
 
 **Key Components**
 
-- Filter - Contains the necessary Lucene syntax to match the information provided in the Detection section of the SIGMA rule
-- Index - Points at the index the rule should run the filter query against
-- Priority - Sets the user-defined rating on the severity of the rule
+- **Filter** - Contains the necessary Lucene syntax to match the information provided in the Detection section of the SIGMA rule
+- **Index** - Points at the index the rule should run the filter query against
+- **Priority** - Sets the user-defined rating on the severity of the rule
 
-Key change during the conversion is that the MITRE Attack tags were not carried over to the ElastAlert rule.
+The key change during the conversion is that the MITRE Attack tags were not carried over to the ElastAlert rule. Unfortunately, not all information or context converts into tool-specific language. The conversion process can be updated to change this behaviour as you will find later in the lab.
 
 ### Convert rules to different alerting platforms
 
-While SIGMA provides a standardized structure for detection rules to be written, it requires that rules to be converted to be leveraged by your SIEM. Choose one of the following formats and manually convert the rule. 
+While SIGMA provides a standardized structure for detection rules to be written, it requires that rules be converted to be leveraged by your SIEM. Fortunately, this is a simple process. Try the below commands. Each takes a Sigma rule and converts it to a specific SIEM format.
 
 **Elasticsearch**
 
 ```yaml
-cd /lab/sigma/tools
+cd /labs/sigma/tools
 
-sigmac -I -t es-rule -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+./sigmac -I -t es-rule -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
-*Output*
+
+The output of the command above will look like below.
+
 ```yaml
 {"description": "Detects suspicious scripting in WMI Event Consumers", "enabled": true, "false_positives": ["Administrative scripts"], "filters": [], "from": "now-360s", "immutable": false, "index": ["winlogbeat-*"], "interval": "5m", "rule_id": "suspicious_scripting_in_a_wmi_consumer", "language": "lucene", "output_index": ".siem-signals-default", "max_signals": 100, "risk_score": 73, "name": "Suspicious Scripting in a WMI Consumer", "query": "(winlog.channel:\"Microsoft\\-Windows\\-Sysmon\\/Operational\" AND winlog.event_id:\"20\" AND Destination.keyword:(*new\\-object\\ system.net.webclient\\).downloadstring\\(* OR *new\\-object\\ system.net.webclient\\).downloadfile\\(* OR *new\\-object\\ net.webclient\\).downloadstring\\(* OR *new\\-object\\ net.webclient\\).downloadfile\\(* OR *\\ iex\\(* OR *WScript.shell* OR *\\ \\-nop\\ * OR *\\ \\-noprofile\\ * OR *\\ \\-decode\\ * OR *\\ \\-enc\\ *))", "references": ["https://in.security/an-intro-into-abusing-and-identifying-wmi-event-subscriptions-for-persistence/", "https://github.com/Neo23x0/signature-base/blob/master/yara/gen_susp_lnk_files.yar#L19"], "meta": {"from": "1m"}, "severity": "high", "tags": ["attack.t1086", "attack.execution"], "to": "now", "type": "query", "threat": [{"tactic": {"id": "TA0002", "reference": "https://attack.mitre.org/tactics/TA0002", "name": "Execution"}, "framework": "MITRE ATT&CK", "technique": [{"id": "T1086", "name": "PowerShell", "reference": "https://attack.mitre.org/techniques/T1086"}]}], "version": 1}
-
 ```
+
 **ElastAlert** 
 
 ```yaml
-cd /lab/sigma/tools
+cd /labs/sigma/tools
 
-sigmac -I -t elastalert -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+./sigmac -I -t elastalert -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
-*Output*
+
+The output of the command above will look like below.
+
 ```yaml
 alert:
 - debug
@@ -140,29 +144,35 @@ realert:
   minutes: 0
 type: any
 ```
+
 **Splunk**
 
 ```yaml
-cd /lab/sigma/tools
+cd /labs/sigma/tools
 
-sigmac -I -t splunk -c /labs/sigma/tools/config/splunk-windows.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
+./sigmac -I -t splunk -c /labs/sigma/tools/config/splunk-windows.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
-*Output*
+
+The output of the command above will look like below.
+
 ```yaml
 (source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode="20" (Destination="*new-object system.net.webclient).downloadstring(*" OR Destination="*new-object system.net.webclient).downloadfile(*" OR Destination="*new-object net.webclient).downloadstring(*" OR Destination="*new-object net.webclient).downloadfile(*" OR Destination="* iex(*" OR Destination="*WScript.shell*" OR Destination="* -nop *" OR Destination="* -noprofile *" OR Destination="* -decode *" OR Destination="* -enc *")) | table CommandLine,ParentCommandLine
 ```
 
-As you can see as you run the command you receive the converted rule as a text output to the screen. Depending on the solution you chose, you would be able to create the rule in SIEM solution. 
+As you can see as you run the command you receive the converted rule as a text output to the screen. The output can be copy and pasted into your SIEM engine. Alternatively, you can use **sigmac** with the **-o** parameter to output the converted rule to a file.
+
+!!! note
+    **sigmac** can be fully automated with scripts. Scripting allows for automatically pulling down new rules and converting them to work with your SIEM. New rules can come from the **Sigma** github project or from other sources such as the Malware Information Sharing Platform (MISP).
 
 ### Learn how to add context to rules
 
-In the first section of this lab, we reviewed a SIGMA rule and compared it to an ElastAlert rule after it had been converted. One of the core differences was that the ElastAlert rule no longer contained the MITRE Attack tags. This is a valuable piece of information. Now let us fix Sigmac to bring over the MITRE tag enrichment. 
+In the first section of this lab, we reviewed a SIGMA rule and compared it to an ElastAlert rule after it had been converted. One of the core differences was that the ElastAlert rule no longer contained the MITRE Attack tags. This is a valuable piece of information. Now let us fix **sigmac** to bring over the MITRE tag enrichment. 
 
 ```bash
-code /lab/sigma/tools/sigma/backends/elasticsearch.py
+code /labs/sigma/tools/sigma/backends/elasticsearch.py
 ```
 
-Press CTRL + g and then type in 965. Press Enter
+Press **CTRL + g** and then type in **1029**. Press **Enter**
 
 ![](./media/code1.PNG)
 
