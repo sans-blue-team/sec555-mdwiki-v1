@@ -181,11 +181,13 @@ Add the following below the line that starts with "realert":
 ```bash
 "mitre": rule_tag,
 ```
+
 ![](./media/code2.PNG)
 
-*NOTE - The comma behind rule_tag is required.*
+!!! note
+    The comma behind **rule_tag** is required.
 
-Save the File
+Click on File and then click Save to save the file.
 
 ![](./media/code3.PNG)
 
@@ -193,11 +195,13 @@ Now that we have modified this file lets go back and rerun the conversion tool f
 
 **ElastAlert** 
 
+```bash
+cd /labs/sigma/tools
+./sigmac -I -t elastalert -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
 ```
-cd /lab/sigma/tools
-sigmac -I -t elastalert -c /labs/sigma/tools/config/winlogbeat.yml /labs/sigma/rules/windows/sysmon/sysmon_wmi_susp_scripting.yml
-```
-*Output*
+
+The output of the command above will look like below.
+
 ```yaml
 alert:
 - debug
@@ -210,93 +214,62 @@ index: winlogbeat-*
 mitre:
 - attack.t1086
 - attack.execution
+- attack.t1059.005
 name: fe21810c-2a8c-478f-8dd3-5a287fb2a0e0_0
 priority: 2
 realert:
   minutes: 0
 type: any
 ```
-Your rule should now contain the MITRE Attack tagging which will enrich this alert during threat hunting.
+
+Your rule should now contain the MITRE Attack tagging which can be useful when threat hunting.
 
 ### Establish a process for mass rule management
 
-Now with the ability to not only convert a SIGMA rule to the correct platform but also enrich it via the MITRE attack framework, we are ready to mass convert the rules and start alerting. The challenge we face is that the Sigmac commands will only covert the rules to a single file so we will need to leverage a little scripting to pull this off. 
+Now with the ability to not only convert a SIGMA rule to the correct platform but also enrich it via the MITRE attack framework, we are ready to mass convert the rules and start alerting. The challenge we face is that the **sigmac** commands will only covert the rules to a single file so we will need to leverage a little scripting to create multiple alerts.
 
-Below we will walk through the script to point out a few of the functions. The first is the basic setup where you can define the location of the footer file, which contains alerting information that will be appended to the rules as well as where the rules should be placed once converted. 
+In your student VM there is a script located at **/labs/sigma/convert_rules.sh**. The script is a wrapper for **sigmac** that also provides the ability to test rules before moving them into production. First, run the script with the command below. The script will take a few minutes to run. While the script executes move on to the next set of instructions.
 
-```python
+```bash
+bash /labs/sigma/convert_rules.sh
+```
+
+Because tOpen the script to view it using the command below.
+
+```bash
+code /labs/sigma/convert_rules.sh
+```
+
+!!! warning
+	Do not make any changes to the script. The below guide will walkthrough what the script does and then have you run it. You should not modify it at all unless you are copying it into a production environment and turning on some of the extra capabilities.
+
+```bash
 #!/bin/bash
 ALERTENGINE="elastalert"
 TEMPLATE="winlogbeat"
-FOOTERFILE="/lab/sigma/elastalert/footer.yml"
-SIGMAFOLDER="/lab/sigma"
-FOLDER="/lab/sigma/rules/windows"
-OUTPUTFOLDER="/lab/sigma/elastalert/testing"
-MITRECONVERTTOOL="/lab/sigma/elastalert/elastalert2attack"
+SIGMAFOLDER="/labs/sigma"
+FOLDER="/labs/sigma/rules/windows"
+OUTPUTFOLDER="/labs/sigma/elastalert/testing"
+MITRECONVERTTOOL="/labs/sigma/elastalert/elastalert2attack"
 
-PRODUCTIONRULEFOLDER="/lab/sigma/elastalert/rules/sigma"
-MANUALREVIEWFOLDER="/lab/sigma/elastalert/review/manual"
-SLOWRULEFOLDER="/lab/sigma/elastalert/review/slow"
+PRODUCTIONRULEFOLDER="/labs/sigma/elastalert/rules/sigma"
+MANUALREVIEWFOLDER="/labs/sigma/elastalert/review/manual"
+SLOWRULEFOLDER="/labs/sigma/elastalert/review/slow"
 
 # Enable or disable which steps you want performed
-PREREQ=1
 CONVERT=1
 REMOVEOLDRULES=1
 TESTRULES=1
 MITREMAP=1
 ```
 
-This next section does a quick precheck to ensure all the correct files and programs are in place for the script to work.
+The core of the script is found below. The script begins to grab each of the SIGMA rules and converts them to a separate ElastAlert rule file.
 
-```python
-# Do not change variables below this line unless you know what you are doing
-SIGMAC="${SIGMAFOLDER}/tools/sigmac"
-
-# Prerequisite check
-if [[ "$PREREQ" == 1 ]]; then
-  if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
-  then
-    echo "Installing git"
-    apt install -y git
-  else
-    echo "Git is already installed"
-  fi
-  if [ $(snap info jq 2>/dev/null | grep -c "installed") -eq 0 ];
-  then
-    echo "Installing jq"
-    snap install jq
-  else
-    echo "jq is already installed"
-  fi
-  if [ $(snap info yq 2>/dev/null | grep -c "installed") -eq 0 ];
-  then
-    echo "Installing yq"
-    snap install yq
-  else
-    echo "yq is already installed"
-  fi
-
-  # First, make sure sigma is downloaded
-  if [ -d $SIGMAFOLDER ]
-  then
-    echo "Sigma folder $SIGMAFOLDER exists. Performing git pull..."
-    cd $SIGMAFOLDER
-    git pull
-  else
-    echo "Sigma folder does not exists. Performing git clone..."
-    mkdir -p $SIGMAFOLDER
-    cd $SIGMAFOLDER
-    git clone https://github.com/Neo23x0/sigma.git .
-  fi
-fi
-```
-
-Finally, here comes the magic. The script begins to grab each of the SIGMA rules and converts them to a separate ElastAlert rule file. 
-
-```python
+```bash
 if [[ "$CONVERT" == 1 ]]; then
   if [[ "$REMOVEOLDRULES" == 1 ]]; then
     rm -rf $OUTPUTFOLDER/*
+	mkdir -p $OUTPUTFOLDER
   fi
   FILES=$(find $FOLDER -type f)
   for FILE in $FILES
@@ -305,43 +278,20 @@ if [[ "$CONVERT" == 1 ]]; then
     ID=$(grep "^id:" $FILE | cut -d":" -f2 | cut -d" " -f2)
     OUTPUTFILE="${FILENAME}_${ID}"
     echo "Processing $FILENAME"
-    RULEFILE=$(grep -r $ID /lab/sigma/rules/windows | cut -d":" -f1)
-    RULEDESCRIPTION=$(cat $RULEFILE | yq r - description)
-    RULEREFERENCES=($(cat $RULEFILE | yq r - references))
-    APPENDSTRING=""
-    for i in "${RULEREFERENCES[@]}"
-    do
-      if [[ "$i" != "-" ]]; then
-        if [[ "$APPENDSTRING" == "" ]]; then
-          APPENDSTRING="$i"
-        else
-          APPENDSTRING="${APPENDSTRING}<br/>$i"
-        fi
-      fi
-    done
-    if [ "${#RULEREFERENCES[@]}" -ge 1 ]; then
-      DESCRIPTION="${RULEDESCRIPTION}<br/><br/>${APPENDSTRING}"
-    fi
-    RULETAGS=$(cat $RULEFILE | yq r - tags | cut -d"." -f2)
-    SIGMACOUTPUT=""
-    SIGMACOUTPUT=$(python3 $SIGMAC -t $ALERTENGINE -c $TEMPLATE $FILE --output $OUTPUTFOLDER/$OUTPUTFILE.yml 2>&1 > /dev/null)
-    if [[ "$SIGMACOUTPUT" != "" ]]; then
-      echo "Error encountered: $SIGMACOUTPUT"
-      rm -f $OUTPUTFOLDER/$OUTPUTFILE.yml
-    else
-      cat $FOOTERFILE >> $OUTPUTFOLDER/$OUTPUTFILE.yml
-      DESCRIPTION=$(echo $DESCRIPTION | tr "'" '"')
-      DESCRIPTION=$(sed -e 's/[\\/"]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$DESCRIPTION")
-      sed -i -e "s|DESCRIPTIONREPLACEME|$DESCRIPTION|" "$OUTPUTFOLDER/$OUTPUTFILE.yml"
-      echo " "
-    fi
+    RULEFILE=$(grep -r $ID $FOLDER | cut -d":" -f1)
+    python3 $SIGMAC -t $ALERTENGINE -c $TEMPLATE $FILE --output $OUTPUTFOLDER/$OUTPUTFILE.yml &>/dev/null & disown
+	# Clean up empty rule files - Normally means a function is not supported by your SIEM or Tool's Rule Engine
+    find $OUTPUTFOLDER -size 0 -delete
   done
 fi
 ```
 
+!!! note
+	Not all Sigma rules are supported by a given tool or SIEM. For example, Elastalert does not support specific aggregation rules. As a result, a little over ten rules do not convert. The result is empty files. The **find** command in the script finds the empty files and deletes them. 
+
 With that completed, the script now goes through the process of launching a docker container of ElastAlert. This container will test each rule to ensure that it runs successfully, quickly, and does not return to many false positives. If a rule fails any of these checks, it is moved to a Manual Review Folder or the Slow Rule Folder. Otherwise, the rule is moved directly to the Production Rule Folder.
 
-```python
+```bash
 if [[ "$TESTRULES" == 1 ]]; then
   if [[ "$REMOVEOLDRULES" == 1 ]]; then
     rm -rf $MANUALREVIEWFOLDER/*
@@ -371,10 +321,9 @@ if [[ "$TESTRULES" == 1 ]]; then
 The final step of the script is the creation of the MITRE Attack Heat Map based on the rules that were successfully added to the Production Rule Folder. This is a great resources to provide upper management as you try to show your organization's detection capabilities as well as gaps in your alerting. 
 
 ``` python
-if [[ "$MITREMAP" == 1 ]]; then
-  $MITRECONVERTTOOL --rules-directory $PRODUCTIONRULEFOLDER --out-file /lab/sigma/elastalert/heatmap.json
-fi
+python3 /labs/sigma/elastalert2attack --rules-directory /labs/sigma/elastalert/testing --out-file /tmp/heatmap.json
 ```
+
 Below is an example of this Heat Map. The more rules you have for a specific MITRE attack, it will gradually change from white to red. 
 
 ![](./media/2020-07-02-14-04-15.png)
