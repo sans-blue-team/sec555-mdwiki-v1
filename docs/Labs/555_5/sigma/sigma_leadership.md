@@ -4,7 +4,7 @@
 
 - Learn how to map out your visibility in your environment
 
-- Compare and contrast the difference Sysmon can make
+- Review logging capabilities and visibility
 
 - Evaluate visibility against the MITRE Attack framework
 
