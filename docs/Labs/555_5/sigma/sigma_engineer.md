@@ -234,7 +234,11 @@ In your student VM there is a script located at **/labs/sigma/convert_rules.sh**
 bash /labs/sigma/convert_rules.sh
 ```
 
-Because tOpen the script to view it using the command below.
+While the script continues to run, open a new terminal.
+
+![](./media/image1.png)
+
+Inside the **new terminal**, open the script to view it using the command below.
 
 ```bash
 code /labs/sigma/convert_rules.sh
@@ -243,33 +247,98 @@ code /labs/sigma/convert_rules.sh
 !!! warning
 	Do not make any changes to the script. The below guide will walkthrough what the script does and then have you run it. You should not modify it at all unless you are copying it into a production environment and turning on some of the extra capabilities.
 
+The top of the script contains the configuration variables necessary to run it. Some of these configuration settings such as the **DOCKERNETWORK** variable are only necessary when performing automatic rule testing. The key variables are the **ALERTENGINE** and **TEMPLATE**. The **ALERTENGINE** variable controls what tool or SIEM product the Sigma rules should be converted to. The **TEMPLATE** specifies the Sigma template file to use during conversion. The template file controls what field names to use specific to an organization.
+
 ```bash
 #!/bin/bash
 ALERTENGINE="elastalert"
 TEMPLATE="winlogbeat"
+DOCKERNETWORK="overlay"
+ELASTALERTCONFIGFILE="/path/to/elastalert.yaml"
+ELASTALERTKEYFILE="/path/to/elastalert.key"
+ELASTALERTCRTFILE="/path/to/elastalert.crt"
+CAFILE="/path/to/ca/ca.crt"
 SIGMAFOLDER="/labs/sigma"
 FOLDER="/labs/sigma/rules/windows"
 OUTPUTFOLDER="/labs/sigma/elastalert/testing"
-MITRECONVERTTOOL="/labs/sigma/elastalert/elastalert2attack"
-
+MITRECONVERTTOOL="/labs/sigma/elastalert2attack"
+MITREOUTPUTFILE="/labs/sigma/elastalert/heatmap.json"
 PRODUCTIONRULEFOLDER="/labs/sigma/elastalert/rules/sigma"
 MANUALREVIEWFOLDER="/labs/sigma/elastalert/review/manual"
 SLOWRULEFOLDER="/labs/sigma/elastalert/review/slow"
-
-# Enable or disable which steps you want performed
-CONVERT=1
-REMOVEOLDRULES=1
-TESTRULES=1
-MITREMAP=1
 ```
 
-The core of the script is found below. The script begins to grab each of the SIGMA rules and converts them to a separate ElastAlert rule file.
+The next section of the script contains variables that enable or disable sections of the script. Setting a variable to 1 enables functionality. In this lab **PREREQ** is disabled as it requires internet access and all software required is already installed. Also, **TESTRULES** is disabled as it requires production logs and is a much slower process as each rule is validated against a production data set.
+
+!!! note
+	**PREREQ** allows the script to install necessary software for the script to run properly. **CONVERT** enables rule conversion. **REMOVEOLDRULES** deletes any existing rules found during conversion. **TESTRULES** would spin off a docker container that tests each of the rules against the last 24 hours of data in your SIEM. **MITREMAP** tells the script to generate a MITRE ATT&CK Navigator heatmap to show MITRE technique coverage based on the rules converted.
+
+```bash
+# Enable or disable which steps you want performed
+PREREQ=0
+CONVERT=1
+REMOVEOLDRULES=1
+TESTRULES=0
+MITREMAP=0
+
+# Do not change variables below this line unless you know what you are doing
+SIGMAC="${SIGMAFOLDER}/tools/sigmac"
+
+mkdir -p $OUTPUTFOLDER
+mkdir -p $PRODUCTIONRULEFOLDER
+mkdir -p $MANUALREVIEWFOLDER
+mkdir -p $SLOWRULEFOLDER
+```
+
+The first section after the configuration variables is the prerequisite section. This section installs required software for the script to work. It also would pull down the Sigma GitHub repo in case it did not already exist locally.
+
+```bash
+# Prequisite check
+if [[ "$PREREQ" == 1 ]]; then
+  if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
+  then
+    echo "Installing git"
+    apt install -y git
+  else
+    echo "Git is already installed"
+  fi
+  if [ $(snap info jq 2>/dev/null | grep -c "installed") -eq 0 ];
+  then
+    echo "Installing jq"
+    snap install jq
+  else
+    echo "jq is already installed"
+  fi
+  if [ $(snap info yq 2>/dev/null | grep -c "installed") -eq 0 ];
+  then
+    echo "Installing yq"
+    snap install yq
+  else
+    echo "yq is already installed"
+  fi
+
+  # First, make sure sigma is downloaded
+  if [ -d $SIGMAFOLDER ]
+  then
+    echo "Sigma folder $SIGMAFOLDER exists. Performing git pull..."
+    cd $SIGMAFOLDER
+    git pull
+  else
+    echo "Sigma folder does not exists. Performing git clone..."
+    mkdir -p $SIGMAFOLDER
+    cd $SIGMAFOLDER
+    git clone https://github.com/Neo23x0/sigma.git .
+  fi
+fi
+```
+
+The core of the script is found in the next section. The script begins to grab each of the SIGMA rules and converts them to a separate ElastAlert rule file.
 
 ```bash
 if [[ "$CONVERT" == 1 ]]; then
   if [[ "$REMOVEOLDRULES" == 1 ]]; then
     rm -rf $OUTPUTFOLDER/*
-	mkdir -p $OUTPUTFOLDER
+    mkdir -p $OUTPUTFOLDER
   fi
   FILES=$(find $FOLDER -type f)
   for FILE in $FILES
@@ -280,16 +349,17 @@ if [[ "$CONVERT" == 1 ]]; then
     echo "Processing $FILENAME"
     RULEFILE=$(grep -r $ID $FOLDER | cut -d":" -f1)
     python3 $SIGMAC -t $ALERTENGINE -c $TEMPLATE $FILE --output $OUTPUTFOLDER/$OUTPUTFILE.yml &>/dev/null & disown
-	# Clean up empty rule files - Normally means a function is not supported by your SIEM or Tool's Rule Engine
-    find $OUTPUTFOLDER -size 0 -delete
+    # Clean up empty rule files - Normally means a function is not supported by your SIEM or Tool's Rule Engine
   done
+  sleep 30
+  find $OUTPUTFOLDER -size 0 -delete
 fi
 ```
 
 !!! note
 	Not all Sigma rules are supported by a given tool or SIEM. For example, Elastalert does not support specific aggregation rules. As a result, a little over ten rules do not convert. The result is empty files. The **find** command in the script finds the empty files and deletes them. 
 
-With that completed, the script now goes through the process of launching a docker container of ElastAlert. This container will test each rule to ensure that it runs successfully, quickly, and does not return to many false positives. If a rule fails any of these checks, it is moved to a Manual Review Folder or the Slow Rule Folder. Otherwise, the rule is moved directly to the Production Rule Folder.
+The next section of the script is the rule testing section. If **TESTRULES** is set to **1** then the script would go through each alert by launching a docker container of ElastAlert. This container will test each rule to ensure that it runs successfully, quickly, and does not return too many false positives. If a rule fails any of these checks, it is moved to a Manual Review Folder or the Slow Rule Folder. Otherwise, the rule is moved directly to the Production Rule Folder.
 
 ```bash
 if [[ "$TESTRULES" == 1 ]]; then
@@ -320,14 +390,58 @@ if [[ "$TESTRULES" == 1 ]]; then
 
 The final step of the script is the creation of the MITRE Attack Heat Map based on the rules that were successfully added to the Production Rule Folder. This is a great resources to provide upper management as you try to show your organization's detection capabilities as well as gaps in your alerting. 
 
-``` python
+``` bash
+if [[ "$MITREMAP" == 1 ]]; then
+  $MITRECONVERTTOOL --rules-directory $PRODUCTIONRULEFOLDER --out-file $MITREOUTPUTFILE
+fi
+```
+
+At this point, **close** out of **Visual Studio Code** and the **extra terminal** that was opened. Next, switch back to the terminal the script was ran. Wait until it completes and then run the command below.
+
+```bash
 python3 /labs/sigma/elastalert2attack --rules-directory /labs/sigma/elastalert/testing --out-file /tmp/heatmap.json
 ```
 
-Below is an example of this Heat Map. The more rules you have for a specific MITRE attack, it will gradually change from white to red. 
+!!! note
+	The command above creates a heatmap for use with MITRE ATT&CK Navigator. The heatmap.json shows what MITRE techniques are covered by which converted sigma rules. The reason the command is being ran outside the script is we are generating a heatmap from the test rules folder rather than the production rules folder since the rules were not tested.
 
-![](./media/2020-07-02-14-04-15.png)
+If you have internet access you can import the heatmap into MITRE ATT&CK Navigator to see your rule coverage. Try doing so by browsing to the link below.
+
+<a href="https://mitre-attack.github.io/attack-navigator/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
+
+Next, click on the **+** sign next to the Layer tab.
+
+![](./media/navigator_tab.png)
+
+Next, click on **Open Existing Layer**.
+
+![](./media/navigator_open_layer.png)
+
+Now, click on **Upload from Local**.
+
+![](./media/navigator_upload.png)
+
+Then navigate to /tmp and select heatmap.json.
+
+![](./media/browse.png)
+
+![](./media/browse1.png)
+
+![](./media/browse2.png)
+
+![](./media/browse3.png)
+
+If you get the warning shown below, click on Okay.
+
+![](./media/browse4.png)
+
+The result will be MITRE Navigator showing a map of the converted Sigma rule coverage. Now, you can monitor your organization's rule to MITRE technique mappings over time.
+
+![](./media/sigma_mitre.png)
 
 ## Lab Conclusion
 
 In this lab, you reviewed the structure of a SIGMA rule and learned how to convert them to usable formats for your SIEM. In addition, to converting the rules, you were able to enrich them with MITRE tagging as well as mass convert the rules using a script. 
+
+
+**Sigma Lab - Engineer is now complete**\!

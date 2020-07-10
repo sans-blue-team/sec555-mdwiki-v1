@@ -106,6 +106,9 @@ Given the fields found, we need to identify areas to add context to the logs. IP
 logstash -f /labs/enrich/geoip.conf
 ```
 
+!!! note
+	The geoip.conf configuration file uses Logstash with the geoip plugin to pull in city, state, country, and ASN information. If you are curious and wish to see the full configuration run this command: code /labs/enrich/geoip.conf
+
 The output from this command should be similar to below:
 
 ```bash
@@ -197,10 +200,114 @@ At this point there still is not enough information to decide if either of these
 
 ### Pull in DNS Query
 
+Next, run Logstash using the dns.conf configuration file to further enrich the IDS alerts. Run the command below to add a query field to the IDS alerts.
 
+```bash
+logstash -f /labs/enrich/dns.conf
+```
+
+!!! note
+	The dns.conf configuration file uses Logstash with the **elasticsearch** plugin to pull in the DNS **query** from historical DNS logs. It does this by looking for the most recent DNS query reponse that had an external IP from the IDS alert in an **answers** field. If you are curious and wish to see the full configuration run this command: code /labs/enrich/dns.conf
+
+The output should now look like below.
+
+```bash
+{
+    "destination_port" => 49339,
+            "sequence" => 0,
+           "source_ip" => "74.125.159.56",
+           "interface" => "sodev-eth1-1",
+               "alert" => "ET POLICY PE EXE or DLL Windows file download ",
+          "source_geo" => {
+              "dma_code" => 807,
+                "as_org" => "Google Inc.",
+              "location" => {
+            "lon" => -122.0574,
+            "lat" => 37.419200000000004
+        },
+             "longitude" => -122.0574,
+                    "ip" => "74.125.159.56",
+           "postal_code" => "94043",
+         "country_code3" => "US",
+           "region_code" => "CA",
+                   "asn" => 15169,
+             "city_name" => "Mountain View",
+        "continent_code" => "NA",
+         "country_code2" => "US",
+              "timezone" => "America/Los_Angeles",
+              "latitude" => 37.419200000000004,
+          "country_name" => "United States",
+           "region_name" => "California"
+    },
+            "priority" => "1",
+                "host" => "logstash",
+            "protocol" => "TCP",
+            "@version" => "1",
+                 "gid" => 1,
+                "tags" => [
+        [0] "internal_destination",
+        [1] "external_source"
+    ],
+                 "sid" => 2000419,
+         "source_port" => 80,
+      "destination_ip" => "192.168.2.39",
+      "classification" => "Potential Corporate Privacy Violation",
+                 "rev" => "18",
+     "destination_geo" => {},
+               "query" => "dl.google.com",
+          "@timestamp" => 2020-07-09T22:44:21.312Z
+}
+{
+    "destination_port" => 49247,
+            "sequence" => 0,
+           "source_ip" => "54.161.95.242",
+           "interface" => "sodev-eth1-1",
+               "alert" => "ET CURRENT_EVENTS Possible PDF Dictionary Entry with Hex/Ascii replacement ",
+          "source_geo" => {
+              "dma_code" => 511,
+                "as_org" => "Amazon.com, Inc.",
+              "location" => {
+            "lon" => -77.4728,
+            "lat" => 39.0481
+        },
+             "longitude" => -77.4728,
+                    "ip" => "54.161.95.242",
+           "postal_code" => "20149",
+         "country_code3" => "US",
+           "region_code" => "VA",
+                   "asn" => 14618,
+             "city_name" => "Ashburn",
+        "continent_code" => "NA",
+         "country_code2" => "US",
+              "timezone" => "America/New_York",
+              "latitude" => 39.0481,
+          "country_name" => "United States",
+           "region_name" => "Virginia"
+    },
+            "priority" => "1",
+                "host" => "logstash",
+            "protocol" => "TCP",
+            "@version" => "1",
+                 "gid" => 1,
+                "tags" => [
+        [0] "internal_destination",
+        [1] "external_source"
+    ],
+                 "sid" => 2017899,
+         "source_port" => 80,
+      "destination_ip" => "192.168.2.39",
+      "classification" => "A Network Trojan was detected",
+                 "rev" => "3",
+     "destination_geo" => {},
+               "query" => "trackmypackage-com.biz",
+          "@timestamp" => 2020-07-09T22:44:21.311Z
+}
+```
+
+At this point, the IDS alerts have more significant context. For example, one alert deals with traffic to **dl.google.com** which is hosted on an external IP registered to an ASN of **Google Inc.**. **dl.google.com** is Google's download site for anyone wishing to download software like Google Chrome, Google Drive Sync, as well as other Google software. As a result, the alert dealing with Google is likely benign.
+
+The other alert reflects traffic going to **trackmypackage-com.biz** which is hosted on an external IP registered to an ASN of **Amazon.com Inc**. **trackymypackage-com.biz** looks like a suspicious domain due to having **-com.biz** rather than simply **.com** or **.biz**. The ASN allows a possible hypothesis that this is a server hosted within Amazon's AWS environment.
 
 ## Lab Conclusion
 
-
-
-**Lab 1.1 is now complete**\!
+**Enrichment Lab is now complete**\!

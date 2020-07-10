@@ -15,4 +15,4 @@ Welcome to the Sigma lab. Choose your destiny. Please pick one of the labs below
 **Objective**: Identify visibility and alert gaps and prioritize alert focus
 
 
-[Sigma Lab - Engineer](sigma_engineer.md)
+[Sigma Lab - Leadership](sigma_leadership.md)
