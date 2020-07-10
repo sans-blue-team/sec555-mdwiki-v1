@@ -24,9 +24,12 @@ Log into the Sec-555 VM
 ## Exercises
 
 ### Learn how to map out your visability in your environment
-One of the most important exercises that often gets overlooked, is evaluating your organization's visiability. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. An amazing tool that can help us perform this task is DeTT&CT. You can find more information about this tool as well as guides for installing it in your environment by following the link below. 
+One of the most important exercises that often gets overlooked, is evaluating your organization's visiability. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. An amazing tool that can help us perform this task is DeTT&CT. 
 
-`https://github.com/rabobank-cdc/DeTTECT`
+!!! note
+    You can find more information about this tool as well as guides for installing it in your environment by following the link below. 
+    
+    `https://github.com/rabobank-cdc/DeTTECT`
 
 Lets walkthrough how you can leverage this tool to provide a true visibility mapping against the MITRE Attack framework. The first step is to click on `Data Sources`.
 
