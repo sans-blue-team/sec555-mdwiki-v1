@@ -71,7 +71,7 @@ Now that we have the Windows logs defined as a data source we will generate the 
 You will then run the following command to create the .json file we will use to map this data source agianst the MITRE Attack framework. 
 
 ```python
-NEED SYNTAX FROM 530 LAB TO CONVERT FILE
+python /opt/DeTTECT/dettect.py ds -fd input/data-sources-traditional.yaml -l
 ```
 
 If you browse to the output folder that you specified when setting up DeTT&ct, you will now have a .json file that we can use to visualize the Windows data source against the MITRE Attack framework. Browse to the following URL with this file. 
