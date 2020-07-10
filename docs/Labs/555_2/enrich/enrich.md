@@ -96,7 +96,9 @@ The output should look as follows:
 !!! note
     The @timestamp will reflect the time you perform the command. It will not match the output in any of the commands during this lab.
 
-Based on the output above the following fields are available: source_ip, destination_ip, source_port, destination_port, protocol, sid, gid, rev, priority, alert, interface, classification, and sequence.
+Based on the output above the following fields are available: **source_ip**, **destination_ip**, **source_port**, **destination_port**, **protocol**, **sid**, **gid**, **rev**, **priority**, **alert**, **interface**, **classification**, and **sequence**.
+
+Take a moment and look at the output above. Based on the two alerts, do you have enough information to tell if either alerts are malicious or not? Unfortunately, many alerting systems do not provide enough information to answer this question.
 
 ### Perform basic geo enrichment
 
