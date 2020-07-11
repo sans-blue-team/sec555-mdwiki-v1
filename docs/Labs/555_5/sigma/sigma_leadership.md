@@ -23,59 +23,39 @@ Log into the Sec-555 VM
 
 ## Exercises
 
-### Learn how to map out your visability in your environment
-One of the most important exercises that often gets overlooked, is evaluating your organization's visiability. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. An amazing tool that can help us perform this task is DeTT&CT. 
+If you have internet access you can import the heatmap into MITRE ATT&CK Navigator to see your rule coverage. Try doing so by browsing to the link below.
 
-!!! note
-    You can find more information about this tool as well as guides for installing it in your environment by following the link below. 
-    
-    `https://github.com/rabobank-cdc/DeTTECT`
+<a href="https://mitre-attack.github.io/attack-navigator/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
 
-Lets walkthrough how you can leverage this tool to provide a true visibility mapping against the MITRE Attack framework. The first step is to click on `Data Sources`.
+Next, click on the **+** sign next to the Layer tab.
 
-![](2020-07-01-23-08-11.png)
+![](./media/navigator_tab.png)
 
-Select `New file`
+Next, click on **Open Existing Layer**.
 
-![](./media/2020-07-02-11-51-58.png)
+![](./media/navigator_open_layer.png)
 
-Click on `Add Data Source`
+Now, click on **Upload from Local**.
 
-![](./media/2020-07-02-11-52-43.png)
+![](./media/navigator_upload.png)
 
-You will now have several fields to define what type of data is being collected and to what level logging is being used. 
+Then navigate to /tmp and select heatmap.json.
 
-![](./media/2020-07-02-11-55-54.png)
+![](./media/browse.png)
 
-1. This field contains a wide variety of data sources. You can start typing and it will autocomplete. For this lab we are focusing on Windows logs so we selected Windows Event Logs. 
-2. You have the option to define when you registered the data in DeTT&CT
-3. You also have the option to define when you started collecting the logs for this data source. 
-4. This option defaults to `No` but you can change it to `Yes` if you are actively monitoring the logs. 
-5. This allows you to indeicate if you are collecting the logs.
-6. This field is optional but it makes it nice to define what sources you are receiving the logs from.  
-7. The comments field is for internal notes or additional information you would like to include during this exercise. 
+![](./media/browse1.png)
 
-The final section allows us to define the quality of the data that we are collectin. Please note these are qualitative fields so use your best judgement.
+![](./media/browse2.png)
 
-![](./media/2020-07-02-12-09-18.png)
+![](./media/browse3.png)
 
-1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
-2. Data Field Completeness - Are all Windows logs fields being parsed?
-3. Timeliness - How quickly are the logs received and ingested into the SIEM?
-4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-5. Retention - How long are the logs retained? 
+If you get the warning shown below, click on Okay.
 
-Please note that every organization will vary in the answers to these questions and your answers will vary between you data sources. When finished modifying these fields `click Add`. 
+![](./media/browse4.png)
 
-Now that we have the Windows logs defined as a data source we will generate the YAML file by clicking `Save YamL File`. This will save the file to the input directory that you wil have setup when installing DeTT&ct. 
+The result will be MITRE Navigator showing a map of the converted Sigma rule coverage. Now, you can monitor your organization's rule to MITRE technique mappings over time.
 
-![](./media/2020-07-02-12-16-49.png)
-
-You will then run the following command to create the .json file we will use to map this data source agianst the MITRE Attack framework. 
-
-```python
-python /opt/DeTTECT/dettect.py ds -fd input/data-sources-traditional.yaml -l
-```
+![](./media/sigma_mitre.png)
 
 If you browse to the output folder that you specified when setting up DeTT&ct, you will now have a .json file that we can use to visualize the Windows data source against the MITRE Attack framework. Browse to the following URL with this file. 
 
