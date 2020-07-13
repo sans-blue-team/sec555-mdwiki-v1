@@ -5,7 +5,7 @@
 - Explore logging capabilities and visibility against the MITRE Attack framework
 - Review alert capabilities based on active rules
 - Determine gaps in visibilities
-- Evaluate gaps in rules
+- Evaluate gaps in alert rules
 - Review areas where there is no visibility or rules
 
 ## Exercise Preparation
@@ -16,18 +16,17 @@ Log into the Sec-555 VM
 
 - Password: sec555
 
-![](./media/image1.png)
-
-
 ## Exercises
 
-### Review logging capabilities and visibility against the MITRE Attack framework
+### Explore logging capabilities and visibility against the MITRE Attack framework
 
 One of the most important exercises that often gets overlooked, is evaluating your organization's visiability. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. Lets look at a key data source in almost every organization - **Windows Logs**. 
 
+To begin **click** the link below to open MITRE ATT&CK Navigator.
+
 <a href="https://mitre-attack.github.io/attack-navigator/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
 
-Next, click on the **+** sign next to the Layer tab.
+Next, click on the **+** sign next to the layer tab.
 
 ![](./media/navigator_tab.png)
 
@@ -39,23 +38,21 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /tmp and select windows.json.
+Then navigate to /labs/sigma and select windows.json.
 
 ![](./media/browse.png)
 
 ![](./media/browse1.png)
 
-![](./media/browse2.png)
+![](./media/open_file_labs.PNG)
 
-![](./media/browse3.png)
+![](./media/open_file_sigma.PNG)
 
-If you get the warning shown below, click on Okay.
-
-![](./media/browse4.png)
+![](./media/open_file_windows.PNG)
 
 The result will be MITRE Navigator showing a map of the visibility Windows logs provides against the MITRE framework.
 
-![](./media/2020-07-02-13-30-04.png)
+![](./media/navigator_windows.PNG)
 
 Windows Event logs are a common data source most organizations have. While they do provide some visibility it begs the question if there is more that can be done to increase the detection capabilities. 
  
@@ -73,23 +70,21 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /tmp and select windows-sysmon.json.
+Then navigate to /labs/sigma and select windows-sysmon.json.
 
 ![](./media/browse.png)
 
 ![](./media/browse1.png)
 
-![](./media/browse2.png)
+![](./media/open_file_labs.PNG)
 
-![](./media/browse3.png)
+![](./media/open_file_sigma.PNG)
 
-If you get the warning shown below, click on Okay.
-
-![](./media/browse4.png)
+![](./media/open_file_windows-sysmon.PNG)
 
 The result will be MITRE Navigator showing a map of the visibility Windows logs with Sysmon against the MITRE framework.
 
-![](./media/2020-07-02-13-44-41.png)
+![](./media/navigator_windows-sysmon.PNG)
 
 Let us compare the difference now. Click back and forth between the **Windows** and **Windows-Sysmon** tabs in MITRE Navigator. Clearly, adding in the Sysmon data sources for our Windows logs add a major jump in visibility. This simple process is a great way to show the value of making changes to the logging levels or capabilities of the data sources. When walking through this exercise it would be a great time to evaluate the logging capabilities of each data source to see if there were opportunities to gain additional visibility in the logs that you are collecting. 
 
@@ -109,33 +104,73 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /tmp and select heatmap.json.
+Then navigate to /labs/sigma and select heatmap.json.
 
 ![](./media/browse.png)
 
 ![](./media/browse1.png)
 
-![](./media/browse2.png)
+![](./media/open_file_labs.PNG)
 
-![](./media/browse3.png)
+![](./media/open_file_sigma.PNG)
 
-If you get the warning shown below, click on Okay.
-
-![](./media/browse4.png)
+![](./media/open_file_sigma_rules.PNG)
 
 The result will be MITRE Navigator showing a map of the Sigma rule coverage for Windows logs.
 
-![](./media/sigma_mitre.png)
+![](./media/navigator_sigma_rules.png)
 
 If you quickly compare the Sigma rules heatmap to the Windows and Windows-Sysmon tabs in the MITRE Navigator you can see that we now have alerts for several of the techniques but we need to take this a step further to identify gaps in our visibility or alert rules. 
 
-### Review gaps in visibilities
+### Determine gaps in visibilities
 
 While engaging with a wide range of organizations and their security products, it has been the author's professional opinion that there is often this false sense of security when it comes to the alerting capabilities of these security products. To many times these security products come with a large set of default alert rules but the organizations lack the visibility in their logs for the rules to alert on. How can an orgainization actually validate that they have the needed visibility in their data sources for their alerts to actually provide detection?
 
 This is actually very easy to do with the help of the MITRE Navigator. Since we already have the Windows and Windows-Sysmon data sources loaded lets compare them to the Sigma rules and see where we lack visibility. 
 
+#### Add Scores to Existing Techniques
+
+Before we are able to move forward we first need to add a value to each of the existing techniques currently visible in both the Windows and Windows-Sysmon layers.
+
+##### Windows
+
+First, click on the **Windows Tab** in the MITRE Navigator
+
+![](./media/navigator_windows_scoring_tab.PNG)
+
+Next, right-click on **"Account Manipulation"** and click "select annotated"
+
+![](./media/navigator_windows_select_all.PNG)
+
+Next, click on the **"Scoring Icon"** and enter **"1"**
+
+![](./media/navigator_windows_scoring.PNG)
+
+Finally, Click on the **Grey Menu Bar** to save the score setting.
+
+![](./media/navigator_windows_scoring_save.PNG)
+
+##### Windows-Sysmon
+
+First, click on the **Windows-Sysmon Tab** in the MITRE Navigator
+
+![](./media/navigator_windows-sysmon_scoring_tab.PNG)
+
+Next, right-click on **"Account Manipulation"** and click "select annotated"
+
+![](./media/navigator_windows-sysmon_select_all.PNG)
+
+Next, click on the **"Scoring Icon"** and enter **"1"**
+
+![](./media/navigator_windows-sysmon_scoring.PNG)
+
+Finally, Click on the **Grey Menu Bar** to save the score setting.
+
+![](./media/navigator_windows-sysmon_scoring_save.PNG)
+
 #### Windows Missing Visibility
+
+We are now ready to assess our current visibility for Windows Logs. 
 
 Click on the **+** sign next to the Sigma Rules Heatmap tab.
 
@@ -143,10 +178,15 @@ Click on the **+** sign next to the Sigma Rules Heatmap tab.
 
 Next, click on **Create Layer from other layers**.
 
+![](./media/navigator_layers.PNG)
+
 Type **d and not b** in the score expression and press **Create**
 
+![](./media/navigator_layers_windows_novisibility.PNG)
+
 !!! note
-    You can do several different operations when creating a layer from another layer. When you **clicked** on Create Layer from other layers you will see that MITRE Navigator assigns a letter to each tab at the top that can be used for these operations. You will also see that there is a clickable link in the description of **score expression** that will provide a full list of the operations. Specifically, for the purpose of this step we are wanting to show the techniques that exist in **d** (Sigma Rules Heatmap) but not in **b** (Windows).
+    You can do several different operations when creating a layer from another layer. When you **clicked** on Create Layer from other layers you will see that MITRE Navigator assigns a letter to each tab at the top that can be used for these operations. You will also see that there is a clickable link in the description of **score expression** that will provide a full list of the operations. 
+    Specifically, for the purpose of this step we are wanting to show the techniques that exist in **d** (Sigma Rules Heatmap) but not in **b** (Windows).
 
 The layer that is created now shows us where we lack visibility in our Windows data source but have Sigma rules. This is a great way to show our visibility gaps and provide our Security team direction for where additional visibility is needed. 
 
@@ -162,16 +202,20 @@ Click on the **+** sign next to the Windows Missing Visibility tab.
 
 Next, click on **Create Layer from other layers**.
 
+![](./media/navigator_layers.PNG)
+
 Type **d and not c** in the score expression and press **Create**
+
+![](./media/navigator_layers_windows-sysmon_novisibility.PNG)
 
 !!! note
     In this step we are wanting to show the techniques that exist in **d** (Sigma Rules Heatmap) but not in **c** (Windows-Sysmon).
 
-We now can see that the Windows-Sysmon provides us a majority of the visibility we needed for our Sigma rules. There still are a few techniques where we lack visibility but this is a great comparison when you are attempting to justify if it is worth implementing changes to logging levels or capabilities such as Sysmon for Windows logs. 
+We now can see that the Windows-Sysmon provides us a majority of the visibility we needed for our Sigma rules. There still are a few techniques where we lack visibility but this is a great comparison when you are attempting to justify if it is worth implementing changes to logging levels or capabilities such as adding Sysmon to your Windows systems. 
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Visibility**. Click anywhere on the screen to save the new name. 
 
-### Review gaps in alert rules
+### Evaluate gaps in alert rules
 
 Now that we know where we are lacking visibility we should also check to see where we have gaps in our alert rules. 
 
@@ -183,7 +227,11 @@ Click on the **+** sign next to the Windows-Sysmon Missing Visibility tab.
 
 Next, click on **Create Layer from other layers**.
 
+![](./media/navigator_layers.PNG)
+
 Type **b and not d** in the score expression and press **Create**
+
+![](./media/navigator_layers_windows_norules.PNG)
 
 !!! note
     For the purpose of this step we are wanting to show and techniques that exist in **b** (Windows) but not in **d** (Sigma Rules Heatmap).
@@ -200,14 +248,18 @@ Click on the **+** sign next to the Windows Missing Alert Rules tab.
 
 Click on **Create Layer from other layers**.
 
+![](./media/navigator_layers.PNG)
+
 Type **c and not d** in the score expression and press **Create**
+
+![](./media/navigator_layers_windows-sysmon_norules.PNG)
 
 !!! note
     For the purpose of this step we are wanting to show and techniques that exist in **c** (Windows-Sysmon) but not in **d** (Sigma Rules Heatmap).
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Alert Rules**. Click anywhere on the screen to save the new name. 
 
-We find that with the Windows-Sysmon logs we have even more visibility that are lacking alert rules. 
+We find that with the Windows-Sysmon logs we have even more visibility where we are lacking alert rules. 
 
 ### Review areas where there is no visibility or rules
 
@@ -219,14 +271,18 @@ Click on the **+** sign next to the Windows-Sysmon Missing Alert Rules tab.
 
 Click on **Create Layer from other layers**.
 
+![](./media/navigator_layers.PNG)
+
 Type **not b and not d** in the score expression and press **Create**
+
+![](./media/navigator_layers_windows_novisibility_norules.PNG)
 
 !!! note
     For the purpose of this step we are wanting to show the techniques that do not exist in **b** (Windows) and do not exist in **d** (Sigma Rules Heatmap).
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
-Review the techniques we are lacking visibility and rules in.  
+Now review the techniques we are lacking visibility and rules.  
 
 #### Windows-Sysmon No Visibility and No Rules
 
@@ -234,16 +290,20 @@ Click on the **+** sign next to the Windows Missing Alert Rules tab.
 
 Click on **Create Layer from other layers**.
 
+![](./media/navigator_layers.PNG)
+
 Type **not c and not d** in the score expression and press **Create**
+
+![](./media/navigator_layers_windows-sysmon_novisibility_norules.PNG)
 
 !!! note
     For the purpose of this step we are wanting to show and techniques that do not exist in **c** (Windows-Sysmon) and do not exist in **d** (Sigma Rules Heatmap).
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
-Review the techniques we are lacking visibility and rules in.
+Now review the techniques we are lacking visibility and rules.
 
-While this final step in the process of evaluating visibility and detection capabilities for your data sources is important, please understand that your mission is not to have 100% coverage for visibility and alert rules for each data source. You mission is understand where you stand as an organization when it comes to your detection capabilities and ensure that you have defensive measures in place for techniques that are used as common attack vectors against your organization. This may sound cliche but there will never be a one size fits all approach to this process and it will take effort on your part to understand your organization and tailor the detection capabilities to provide the best defense for you. 
+While this final step in the process of evaluating visibility and detection capabilities for your data sources is important, please understand that your mission is not to have 100% coverage for visibility and alert rules for each data source. You mission is to understand where you stand as an organization when it comes to your detection capabilities and ensure that you have defensive measures in place for techniques that are used as common attack vectors against your organization. This may sound cliche but there will never be a one size fits all approach to this process and it will take effort on your part to understand your organization and tailor the detection capabilities to provide the best defense for you. 
 
 **DEFEND THE THINGS!!!**
 
