@@ -1,4 +1,4 @@
-# Lab 1.1 - SIGMA Rules - Leadership
+# Sigma Lab - Leadership
 
 ## Objectives
 
