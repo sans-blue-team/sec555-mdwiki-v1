@@ -73,7 +73,7 @@ level: high
 - **Fields** - Lists the field names that will be queried in the detection syntax 
 - **Level** - Sets a user-defined rating on the severity if this rule is triggered
 
-The major benefit of a generic signature format is that the signature is designed to convert into a tool specific format. For example, below is the above rule after it has been converted to ElastAlert format.
+The major benefit of a generic signature format is that the signature is designed to convert into a tool-specific format. For example, below is the above rule after it has been converted to ElastAlert format.
 
 ```yaml
 alert:
@@ -99,7 +99,7 @@ As you can see, this rule still contains the core information provided by the SI
 - **Index** - Points at the index the rule should run the filter query against
 - **Priority** - Sets the user-defined rating on the severity of the rule
 
-The key change during the conversion is that the MITRE Attack tags were not carried over to the ElastAlert rule. Unfortunately, not all information or context converts into tool-specific language. The conversion process can be updated to change this behaviour as you will find later in the lab.
+The key change during the conversion is that the MITRE Attack tags were not carried over to the ElastAlert rule. Unfortunately, not all information or context converts into tool-specific language. The conversion process can be updated to change this behavior as you will find later in the lab.
 
 ### Convert rules to different alerting platforms
 
@@ -162,7 +162,7 @@ The output of the command above will look like below.
 As you can see as you run the command you receive the converted rule as a text output to the screen. The output can be copy and pasted into your SIEM engine. Alternatively, you can use **sigmac** with the **-o** parameter to output the converted rule to a file.
 
 !!! note
-    **sigmac** can be fully automated with scripts. Scripting allows for automatically pulling down new rules and converting them to work with your SIEM. New rules can come from the **Sigma** github project or from other sources such as the Malware Information Sharing Platform (MISP).
+    **sigmac** can be fully automated with scripts. Scripting allows for automatically pulling down new rules and converting them to work with your SIEM. New rules can come from the **Sigma** GitHub project or from other sources such as the Malware Information Sharing Platform (MISP).
 
 ### Learn how to add context to rules
 
@@ -245,7 +245,7 @@ code /labs/sigma/convert_rules.sh
 ```
 
 !!! warning
-	Do not make any changes to the script. The below guide will walkthrough what the script does and then have you run it. You should not modify it at all unless you are copying it into a production environment and turning on some of the extra capabilities.
+	Do not make any changes to the script. The below guide will walk through what the script does and then have you run it. You should not modify it at all unless you are copying it into a production environment and turning on some of the extra capabilities.
 
 The top of the script contains the configuration variables necessary to run it. Some of these configuration settings such as the **DOCKERNETWORK** variable are only necessary when performing automatic rule testing. The key variables are the **ALERTENGINE** and **TEMPLATE**. The **ALERTENGINE** variable controls what tool or SIEM product the Sigma rules should be converted to. The **TEMPLATE** specifies the Sigma template file to use during conversion. The template file controls what field names to use specific to an organization.
 
@@ -271,10 +271,10 @@ SLOWRULEFOLDER="/labs/sigma/elastalert/review/slow"
 The next section of the script contains variables that enable or disable sections of the script. Setting a variable to 1 enables functionality. In this lab **PREREQ** is disabled as it requires internet access and all software required is already installed. Also, **TESTRULES** is disabled as it requires production logs and is a much slower process as each rule is validated against a production data set.
 
 !!! note
-	**PREREQ** allows the script to install necessary software for the script to run properly. **CONVERT** enables rule conversion. **REMOVEOLDRULES** deletes any existing rules found during conversion. **TESTRULES** would spin off a docker container that tests each of the rules against the last 24 hours of data in your SIEM. **MITREMAP** tells the script to generate a MITRE ATT&CK Navigator heatmap to show MITRE technique coverage based on the rules converted.
+	**PREREQ** allows the script to install the necessary software for the script to run properly. **CONVERT** enables rule conversion. **REMOVEOLDRULES** deletes any existing rules found during conversion. **TESTRULES** would spin off a docker container that tests each of the rules against the last 24 hours of data in your SIEM. **MITREMAP** tells the script to generate a MITRE ATT&CK Navigator heatmap to show MITRE technique coverage based on the rules converted.
 
 ```bash
-# Enable or disable which steps you want performed
+# Enable or disable which steps you want to be performed
 PREREQ=0
 CONVERT=1
 REMOVEOLDRULES=1
@@ -290,7 +290,7 @@ mkdir -p $MANUALREVIEWFOLDER
 mkdir -p $SLOWRULEFOLDER
 ```
 
-The first section after the configuration variables is the prerequisite section. This section installs required software for the script to work. It also would pull down the Sigma GitHub repo in case it did not already exist locally.
+The first section after the configuration variables is the prerequisite section. This section installs the required software for the script to work. It also would pull down the Sigma GitHub repo in case it did not already exist locally.
 
 ```bash
 # Prequisite check
@@ -324,7 +324,7 @@ if [[ "$PREREQ" == 1 ]]; then
     cd $SIGMAFOLDER
     git pull
   else
-    echo "Sigma folder does not exists. Performing git clone..."
+    echo "Sigma folder does not exist. Performing git clone..."
     mkdir -p $SIGMAFOLDER
     cd $SIGMAFOLDER
     git clone https://github.com/Neo23x0/sigma.git .
@@ -388,7 +388,7 @@ if [[ "$TESTRULES" == 1 ]]; then
     fi
 ```
 
-The final step of the script is the creation of the MITRE Attack Heat Map based on the rules that were successfully added to the Production Rule Folder. This is a great resources to provide upper management as you try to show your organization's detection capabilities as well as gaps in your alerting. 
+The final step of the script is the creation of the MITRE Attack Heat Map based on the rules that were successfully added to the Production Rule Folder. This is a great resource to provide upper management as you try to show your organization's detection capabilities as well as gaps in your alerting. 
 
 ``` bash
 if [[ "$MITREMAP" == 1 ]]; then
@@ -396,14 +396,14 @@ if [[ "$MITREMAP" == 1 ]]; then
 fi
 ```
 
-At this point, **close** out of **Visual Studio Code** and the **extra terminal** that was opened. Next, switch back to the terminal the script was ran. Wait until it completes and then run the command below.
+At this point, **close** out of **Visual Studio Code** and the **extra terminal** that was opened. Next, switch back to the terminal that the script was running in. Wait until it completes and then run the command below.
 
 ```bash
 python3 /labs/sigma/elastalert2attack --rules-directory /labs/sigma/elastalert/testing --out-file /tmp/heatmap.json
 ```
 
 !!! note
-	The command above creates a heatmap for use with MITRE ATT&CK Navigator. The heatmap.json shows what MITRE techniques are covered by which converted sigma rules. The reason the command is being ran outside the script is we are generating a heatmap from the test rules folder rather than the production rules folder since the rules were not tested.
+	The command above creates a heatmap for use with MITRE ATT&CK Navigator. The heatmap.json shows what MITRE techniques are covered by which converted sigma rules. The reason the command is being run outside the script is we are generating a heatmap from the test rules folder rather than the production rules folder since the rules were not tested.
 
 If you have internet access you can import the heatmap into MITRE ATT&CK Navigator to see your rule coverage. Try doing so by browsing to the link below.
 
