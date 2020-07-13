@@ -152,6 +152,9 @@ Finally, Click on the **Grey Menu Bar** to save the score setting.
 
 ![](./media/navigator_windows_scoring_save.PNG)
 
+!!! info
+    These steps have added a score of 1 to each of the annotated techniques for the Windows logs. 
+
 ##### Windows-Sysmon
 
 First, click on the **Windows-Sysmon Tab** in the MITRE Navigator
@@ -170,6 +173,9 @@ Finally, Click on the **Grey Menu Bar** to save the score setting.
 
 ![](./media/navigator_windows-sysmon_scoring_save.PNG)
 
+!!! info
+    These steps have added a score of 1 to each of the annotated techniques for the Windows-Sysmon logs. 
+    
 #### Windows Missing Visibility
 
 We are now ready to assess our current visibility for Windows Logs. 
