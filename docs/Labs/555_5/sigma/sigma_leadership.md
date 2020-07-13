@@ -260,6 +260,8 @@ Lets proceed and check where we are missing alert rules for Windows-Sysmon.
 
 Click on the **+** sign next to the Windows Missing Alert Rules tab.
 
+![](./media/navigator_tab.png)
+
 Click on **Create Layer from other layers**.
 
 ![](./media/navigator_layers.PNG)
