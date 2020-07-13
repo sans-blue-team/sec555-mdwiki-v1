@@ -148,9 +148,7 @@ Next, click on the **"Scoring Icon"** and enter **"1"**
 
 ![](./media/navigator_windows_scoring.PNG)
 
-Finally, Click on the **Grey Menu Bar** to save the score setting.
-
-![](./media/navigator_windows_scoring_save.PNG)
+Finally, Click on the **Scoring Icon** again to save the score setting.
 
 !!! info
     These steps have added a score of 1 to each of the annotated techniques for the Windows logs. 
@@ -169,9 +167,7 @@ Next, click on the **"Scoring Icon"** and enter **"1"**
 
 ![](./media/navigator_windows-sysmon_scoring.PNG)
 
-Finally, Click on the **Grey Menu Bar** to save the score setting.
-
-![](./media/navigator_windows-sysmon_scoring_save.PNG)
+Finally, Click on the **Scoring Icon** again to save the score setting.
 
 !!! info
     These steps have added a score of 1 to each of the annotated techniques for the Windows-Sysmon logs. 
