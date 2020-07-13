@@ -306,16 +306,40 @@ Now, click on **Upload from Local**.
 
 Then navigate to /home/student/Downloads/ **data_source_example.json** file.
 
-![](./media/browse.png)
+![](./media/navigator_browse.PNG)
 
-![](./media/browse1.png)
+![](./media/navigator_select_file.PNG)
 
-![](./media/open_file_labs.PNG)
+You may receive a warning message about the **layer version**. Just click **OK**
 
-![](./media/open_file_sigma.PNG)
+The file will still load successfully. 
 
-![](./media/open_file_windows.PNG)
+![](./media/navigator_data_sources.PNG)
 
-The result will be MITRE Navigator showing a map of the visibility Windows logs provides against the MITRE framework.
+The result will be MITRE Navigator showing a map of the visibility LabMeINC's data sources provide against the MITRE framework. This is very beneficial as we can clearly see techniques that LabMeINC is vulnerable to. The next step would be to evaluate LabMeINC and determine what are the most common attack vectors used against them as they are a Health Organization. This would narrow down which techniques we would recommend they gain additional visiability and detection capabilities. 
 
-![](./media/navigator_windows.PNG)
+Just like LabMeINC many organizations have similar visibility and often feel stuck due to limited resources and staff. Over the course of this class we will be walking through many detection techniques that with minimal effort will allow for you to level up your visibility and detection even with these minimal data sources. To give you a sneak peak at what this will look like we have created a second .JSON file that includes these additional techniques which will be covered in the class. Lets compare this against the file we generated for LabMeINC.
+
+Click on the **+** sign next to the layer tab.
+
+![](./media/navigator_tab.png)
+
+Next, click on **Open Existing Layer**.
+
+![](./media/navigator_open_layer.png)
+
+Now, click on **Upload from Local**.
+
+![](./media/navigator_upload.png)
+
+Then navigate to /labs/ **data_source_example.json** file.
+
+![](./media/navigator_browse.PNG)
+
+![](./media/navigator_select_file.PNG)
+
+You may receive a warning message about the **layer version**. Just click **OK**
+
+The file will still load successfully. 
+
+![](./media/navigator_leveled_up_data_sources.PNG)
