@@ -338,11 +338,11 @@ Then navigate to /labs/dettect and open **data_sources_leveled_up.json** file.
 
 ![](./media/navigator_browse2.PNG)
 
-![](./media/navigator_browse3.PNG)
+![](./media/navigator_browse3.png)
 
-![](./media/navigator_browse4.PNG)
+![](./media/navigator_browse4.png)
 
-![](./media/navigator_browse5.PNG)
+![](./media/navigator_browse5.png)
 
 You may receive a warning message about the **layer version**. Just click **OK**
 
