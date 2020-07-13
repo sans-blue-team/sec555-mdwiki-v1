@@ -11,13 +11,11 @@ Objectives
 Exercise Preparation
 ==========
 
-Log into the Sec-530 VM
+Log into the Sec-555 VM
 
 - Username: student
 
-- Password: Security530
-
-![](./media/image1.png)  
+- Password: sec555
 
 We will be looking at a company called LabMeINC. Our objective is to review their current data sources and determine if we have the appropriate visibility and detection capabilities for their organization. LabMeINC is like most organizations and has the following data sources currently being ingested into their Security Incident and Events Management(SIEM) system. 
 * Windows Logs
@@ -69,7 +67,7 @@ http://localhost:8080/dettect-editor
 
 This will take you to the web interface for DeTTECT that we locally are running on your VM. You should see the following screen. 
 
-![](.media/dettect_home.png)
+![](./media/dettect_home.png)
 
 We will begin by clicking on **Data Sources**
 
