@@ -312,6 +312,8 @@ Then navigate to /home/student/Downloads/ **data_source_example.json** file.
 
 You may receive a warning message about the **layer version**. Just click **OK**
 
+![](./media/navigator_warning.PNG)
+
 The file will still load successfully. 
 
 ![](./media/navigator_data_sources.PNG)
