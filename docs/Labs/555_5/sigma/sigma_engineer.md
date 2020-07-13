@@ -1,4 +1,4 @@
-# Lab SIGMA Rules - Security Engineer
+# Sigma Lab - Engineer
 
 ## Objectives
 
