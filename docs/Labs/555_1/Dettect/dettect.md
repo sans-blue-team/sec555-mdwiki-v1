@@ -334,9 +334,7 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /labs/dettect **data_sources_leveled_up.json** file.
-
-![](./media/navigator_browse.PNG)
+Then navigate to /labs/dettect and open **data_sources_leveled_up.json** file.
 
 ![](./media/navigator_browse2.PNG)
 
