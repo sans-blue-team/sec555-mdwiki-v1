@@ -198,6 +198,8 @@ Type **d and not b** in the score expression and press **Create**
 
 The layer that is created now shows us where we lack visibility in our Windows data source but have Sigma rules. This is a great way to show our visibility gaps and provide our Security team direction for where additional visibility is needed. 
 
+![](./media/navigator_windows_missing_visibility.PNG)
+
 Double click on the name of the new tab **layer by operation** and rename it to **Windows Missing Visibility**. Click anywhere on the screen to save the new name. 
 
 #### Windows-Sysmon Missing Visibility
@@ -221,6 +223,8 @@ Type **d and not c** in the score expression and press **Create**
 
 We now can see that the Windows-Sysmon provides us a majority of the visibility we needed for our Sigma rules. There still are a few techniques where we lack visibility but this is a great comparison when you are attempting to justify if it is worth implementing changes to logging levels or capabilities such as adding Sysmon to your Windows systems. 
 
+![](./media/navigator_windows-sysmon_missing_visibility.PNG)
+
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Visibility**. Click anywhere on the screen to save the new name. 
 
 ### Evaluate gaps in alert rules
@@ -243,6 +247,10 @@ Type **b and not d** in the score expression and press **Create**
 
 !!! note
     For the purpose of this step we are wanting to show and techniques that exist in **b** (Windows) but not in **d** (Sigma Rules Heatmap).
+   
+The layer created now shows us the techniques we have visibility for but do not have any rules created. 
+
+![](./media/navigator_windows_missing_alert_rules.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows Missing Alert Rules**. Click anywhere on the screen to save the new name. 
 
@@ -264,6 +272,10 @@ Type **c and not d** in the score expression and press **Create**
 
 !!! note
     For the purpose of this step we are wanting to show and techniques that exist in **c** (Windows-Sysmon) but not in **d** (Sigma Rules Heatmap).
+    
+The layer created now shows us the techniques we have visibility for but do not have any rules created. 
+
+![](./media/navigator_windows-sysmon_missing_alert_rules.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Alert Rules**. Click anywhere on the screen to save the new name. 
 
@@ -287,6 +299,10 @@ Type **not b and not d** in the score expression and press **Create**
 
 !!! note
     For the purpose of this step we are wanting to show the techniques that do not exist in **b** (Windows) and do not exist in **d** (Sigma Rules Heatmap).
+    
+This layer shows us where we have no visibility or rules for this data source. 
+
+![](./media/navigator_windows_novisibility_norules.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
@@ -306,6 +322,10 @@ Type **not c and not d** in the score expression and press **Create**
 
 !!! note
     For the purpose of this step we are wanting to show and techniques that do not exist in **c** (Windows-Sysmon) and do not exist in **d** (Sigma Rules Heatmap).
+
+This layer shows us where we have no visibility or rules for this data source. 
+
+![](./media/navigator_windows_novisibility_norules.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
