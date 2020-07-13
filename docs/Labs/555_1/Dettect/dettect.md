@@ -286,6 +286,36 @@ Once the script runs successfully there should now be a file in **/home/student/
 
 ### Visualize Data Sources to the MITRE Framework 
 
-Now that we have utilized DeTTECT to create the **data_source_example.json** file we are ready to map these data sources against the MITRE Framework to determine what visibility LabMeINC actually has. 
+Now that we have utilized DeTTECT to create the **data_source_example.json** file we are ready to map these data sources against the MITRE Framework to determine what visibility LabMeINC actually has. We will be utilizing the MITRE ATT&CK Navigator to visualize the **data_source_example.json** file.
 
+To begin **click** the link below to open MITRE ATT&CK Navigator.
 
+<a href="https://mitre-attack.github.io/attack-navigator/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
+
+Next, click on the **+** sign next to the layer tab.
+
+![](./media/navigator_tab.png)
+
+Next, click on **Open Existing Layer**.
+
+![](./media/navigator_open_layer.png)
+
+Now, click on **Upload from Local**.
+
+![](./media/navigator_upload.png)
+
+Then navigate to /home/student/Downloads/ **data_source_example.json** file.
+
+![](./media/browse.png)
+
+![](./media/browse1.png)
+
+![](./media/open_file_labs.PNG)
+
+![](./media/open_file_sigma.PNG)
+
+![](./media/open_file_windows.PNG)
+
+The result will be MITRE Navigator showing a map of the visibility Windows logs provides against the MITRE framework.
+
+![](./media/navigator_windows.PNG)
