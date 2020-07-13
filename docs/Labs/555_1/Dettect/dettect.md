@@ -345,3 +345,11 @@ You may receive a warning message about the **layer version**. Just click **OK**
 The file will still load successfully. 
 
 ![](./media/data_sources_leveled_up.PNG)
+
+Compare the two tabs now. You can easily see that by strategically adding in key data sources and detection capabilities LabMEINC would be able to level up their overall security. Now would be a great time to begin to map out your organization's visibility and detection capbailiities. How do you stack up against LabMeINC?
+
+## Lab Conclusion
+
+In this lab, you reviewed the functionality of the DeTTECT tool and used it to map out data source visibility and detection capabilities. From that exercise you were able to visualize the data source against the MITRE Framework to evaluate LabMeINC's current capability to see and detect evil within their environment. 
+
+**DeTTECT Lab is now complete**\!
