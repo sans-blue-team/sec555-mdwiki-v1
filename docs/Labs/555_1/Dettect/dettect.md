@@ -334,14 +334,14 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /labs/ **data_source_example.json** file.
+Then navigate to /labs/dettect **data_sources_leveled_up.json** file.
 
-![](./media/navigator_browse.PNG)
-
-![](./media/navigator_select_file.PNG)
+NEED SCREENSHOTS FOR BROWSING TO THE ABOVE FILE ON THE STUDENT VM
 
 You may receive a warning message about the **layer version**. Just click **OK**
 
+![](./media/navigator_warning.PNG)
+
 The file will still load successfully. 
 
-![](./media/navigator_leveled_up_data_sources.PNG)
+![](./media/data_sources_leveled_up.PNG)
