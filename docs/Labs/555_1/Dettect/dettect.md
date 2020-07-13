@@ -69,7 +69,7 @@ http://localhost:8080/dettect-editor
 
 This will take you to the web interface for DeTTECT that we locally are running on your VM. You should see the following screen. 
 
-![](.media/dettect_home.PNG)
+![](.media/dettect_home.png)
 
 We will begin by clicking on **Data Sources**
 
