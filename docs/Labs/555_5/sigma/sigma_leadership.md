@@ -254,8 +254,6 @@ The layer created now shows us the techniques we have visibility for but do not 
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows Missing Alert Rules**. Click anywhere on the screen to save the new name. 
 
-As you can see we are missing rules on three techniques where we have visibility within the Windows Event logs. 
-
 #### Windows-Sysmon Missing Alert Rules
 
 Lets proceed and check where we are missing alert rules for Windows-Sysmon. 
