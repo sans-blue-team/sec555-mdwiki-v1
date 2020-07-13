@@ -120,7 +120,7 @@ Then navigate to /labs/sigma and select heatmap.json.
 
 The result will be MITRE Navigator showing a map of the Sigma rule coverage for Windows logs.
 
-![](./media/navigator_sigma_rules.png)
+![](./media/navigator_sigma_rules.PNG)
 
 If you quickly compare the Sigma rules heatmap to the Windows and Windows-Sysmon tabs in the MITRE Navigator you can see that we now have alerts for several of the techniques but we need to take this a step further to identify gaps in our visibility or alert rules. 
 
