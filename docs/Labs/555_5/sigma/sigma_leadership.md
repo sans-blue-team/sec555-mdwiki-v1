@@ -56,7 +56,9 @@ The result will be MITRE Navigator showing a map of the visibility Windows logs 
 
 Windows Event logs are a common data source most organizations have. While they do provide some visibility it begs the question if there is more that can be done to increase the detection capabilities. 
  
-System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log.
+System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. By simply adding this to our Windows systems it will increase our visibility within this data source and does not require that much effort to accomplish. 
+
+Lets see what difference adding Sysmon to our Windows logs will make. 
 
 Click on the **+** sign next to the Windows tab.
 
