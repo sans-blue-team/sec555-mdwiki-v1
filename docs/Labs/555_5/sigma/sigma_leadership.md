@@ -198,7 +198,7 @@ Type **d and not b** in the score expression and press **Create**
 
 The layer that is created now shows us where we lack visibility in our Windows data source but have Sigma rules. This is a great way to show our visibility gaps and provide our Security team direction for where additional visibility is needed. 
 
-![](./media/navigator_windows_missing_visibility.PNG)
+![](./media/navigator_windows_missing_visibilities.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows Missing Visibility**. Click anywhere on the screen to save the new name. 
 
@@ -216,7 +216,7 @@ Next, click on **Create Layer from other layers**.
 
 Type **d and not c** in the score expression and press **Create**
 
-![](./media/navigator_layers_windows-sysmon_novisibility.PNG)
+![](./media/navigator_layers_windows-sysmon_novisibilities.PNG)
 
 !!! note
     In this step we are wanting to show the techniques that exist in **d** (Sigma Rules Heatmap) but not in **c** (Windows-Sysmon).
