@@ -20,7 +20,7 @@ Log into the Sec-555 VM
 
 ### Explore logging capabilities and visibility against the MITRE Attack framework
 
-One of the most important exercises that often gets overlooked, is evaluating your organization's visiability. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. Lets look at a key data source in almost every organization - **Windows Logs**. 
+One of the most important exercises that often gets overlooked, is evaluating your organization's visibility. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. Let us look at a key data source in almost every organization - **Windows Logs**. 
 
 To begin **click** the link below to open MITRE ATT&CK Navigator.
 
@@ -50,15 +50,15 @@ Then navigate to /labs/sigma and select windows.json.
 
 ![](./media/open_file_windows.PNG)
 
-The result will be MITRE Navigator showing a map of the visibility Windows logs provides against the MITRE framework.
+The result will be MITRE Navigator showing a map of the visibility Windows logs provide against the MITRE framework.
 
 ![](./media/navigator_windows.PNG)
 
 Windows Event logs are a common data source most organizations have. While they do provide some visibility it begs the question if there is more that can be done to increase the detection capabilities. 
  
-System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. By simply adding this to our Windows systems it will increase our visibility within this data source and does not require that much effort to accomplish. 
+System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. By simply adding this to our Windows systems, it will increase our visibility within this data source and does not require that much effort to accomplish. 
 
-Lets see what difference adding Sysmon to our Windows logs will make. 
+Let us see what difference adding Sysmon to our Windows logs will make. 
 
 Click on the **+** sign next to the Windows tab.
 
@@ -92,7 +92,7 @@ Let us compare the difference now. Click back and forth between the **Windows** 
 
 ### Review alert capabilities based on active rules
 
-To often organizations will excel in having the needed visibility to detect threats but do not have the appropriate rules to actually alert when a threat is present. Lets review what type of detection capabilities we can gain from adding in Windows SIGMA rules for alerting. 
+To often organizations will excel in having the needed visibility to detect threats but do not have the appropriate rules to actually alert when a threat is present. Let us review what type of detection capabilities we can gain from adding in Windows SIGMA rules for alerting. 
 
 Click on the **+** sign next to the Windows-Sysmon tab.
 
@@ -126,9 +126,9 @@ If you quickly compare the Sigma rules heatmap to the Windows and Windows-Sysmon
 
 ### Determine gaps in visibilities
 
-While engaging with a wide range of organizations and their security products, it has been the author's professional opinion that there is often this false sense of security when it comes to the alerting capabilities of these security products. To many times these security products come with a large set of default alert rules but the organizations lack the visibility in their logs for the rules to alert on. How can an orgainization actually validate that they have the needed visibility in their data sources for their alerts to actually provide detection?
+While engaging with a wide range of organizations and their security products, it has been the author's professional opinion that there is often this false sense of security when it comes to the alerting capabilities of these security products. Too many times these security products come with a large set of default alert rules but the organizations lack the visibility in their logs for the rules to alert on. How can an organization actually validate that they have the needed visibility in their data sources for their alerts to actually provide detection?
 
-This is actually very easy to do with the help of the MITRE Navigator. Since we already have the Windows and Windows-Sysmon data sources loaded lets compare them to the Sigma rules and see where we lack visibility. 
+This is actually very easy to do with the help of the MITRE Navigator. Since we already have the Windows and Windows-Sysmon data sources loaded let us compare them to the Sigma rules and see where we lack visibility. 
 
 #### Add Scores to Existing Techniques
 
@@ -200,7 +200,7 @@ Double click on the name of the new tab **layer by operation** and rename it to 
 
 #### Windows-Sysmon Missing Visibility
 
-Lets go ahead and perform the same exercise for the Windows-Sysmon data source and see where we lack visibility in comparision to our Sigma rules. 
+Let us go ahead and perform the same exercise for the Windows-Sysmon data source and see where we lack visibility in comparison to our Sigma rules. 
 
 Click on the **+** sign next to the Windows Missing Visibility tab.
 
@@ -252,7 +252,7 @@ Double click on the name of the new tab **layer by operation** and rename it to 
 
 #### Windows-Sysmon Missing Alert Rules
 
-Lets proceed and check where we are missing alert rules for Windows-Sysmon. 
+Let us proceed and check where we are missing alert rules for Windows-Sysmon. 
 
 Click on the **+** sign next to the Windows Missing Alert Rules tab.
 
@@ -296,7 +296,7 @@ Type **not b and not d** in the score expression and press **Create**
 ![](./media/navigator_layers_windows_novisibility_norules.PNG)
 
 !!! note
-    For the purpose of this step we are wanting to show the techniques that do not exist in **b** (Windows) and do not exist in **d** (Sigma Rules Heatmap).
+    For the purpose of this step, we are wanting to show the techniques that do not exist in **b** (Windows) and do not exist in **d** (Sigma Rules Heatmap).
     
 This layer shows us where we have no visibility or rules for this data source. 
 
@@ -308,7 +308,7 @@ Now review the techniques we are lacking visibility and rules.
 
 #### Windows-Sysmon No Visibility and No Rules
 
-Lets perform the same steps for the Windows-Sysmon. 
+Let us perform the same steps for the Windows-Sysmon. 
 
 Click on the **+** sign next to the Windows Missing Alert Rules tab.
 
@@ -323,7 +323,7 @@ Type **not c and not d** in the score expression and press **Create**
 ![](./media/navigator_layers_windows-sysmon_novisibility_norules.PNG)
 
 !!! note
-    For the purpose of this step we are wanting to show and techniques that do not exist in **c** (Windows-Sysmon) and do not exist in **d** (Sigma Rules Heatmap).
+    For the purpose of this step, we are wanting to show and techniques that do not exist in **c** (Windows-Sysmon) and do not exist in **d** (Sigma Rules Heatmap).
 
 This layer shows us where we have no visibility or rules for this data source. 
 
@@ -333,12 +333,12 @@ Double click on the name of the new tab **layer by operation** and rename it to 
 
 Now review the techniques we are lacking visibility and rules.
 
-While this final step in the process of evaluating visibility and detection capabilities for your data sources is important, please understand that your mission is not to have 100% coverage for visibility and alert rules for each data source. You mission is to understand where you stand as an organization when it comes to your detection capabilities and ensure that you have defensive measures in place for techniques that are used as common attack vectors against your organization. This may sound cliche but there will never be a one size fits all approach to this process and it will take effort on your part to understand your organization and tailor the detection capabilities to provide the best defense for you. 
+While this final step in the process of evaluating visibility and detection capabilities for your data sources is important, please understand that your mission is not to have 100% coverage for visibility and alert rules for each data source. Your mission is to understand where you stand as an organization when it comes to your detection capabilities and ensure that you have defensive measures in place for techniques that are used as common attack vectors against your organization. This may sound cliche but there will never be a one size fits all approach to this process and it will take effort on your part to understand your organization and tailor the detection capabilities to provide the best defense for you. 
 
 **DEFEND THE THINGS!!!**
 
 ## Lab Conclusion
 
-In the lab you were able to review the visibility and detection capabilities for the Windows data sources. You were able to see that enhancing a data source often will reap better visibility in your environment. However, even with the visibility and detection you found that you still need to review and evaluate gaps in each of your data sources and well as alert rules to ensure you have the proper measures in place to protect your organization.
+In the lab, you were able to review the visibility and detection capabilities for the Windows data sources. You were able to see that enhancing a data source often will reap better visibility in your environment. However, even with the visibility and detection, you found that you still need to review and evaluate gaps in each of your data sources and well as alert rules to ensure you have the proper measures in place to protect your organization.
 
-**Lab 1.1 is now complete**\!
+**Sigma Lab - Leadership is now complete**\!
