@@ -27,19 +27,19 @@ To accomplish this review we will be utilizing a tool called DeTTECT which will 
 
 ### Review the Functionality of DeTTECT
 
-DeTT&CT aims to assist blue teams using ATT&CK to score and compare data log source quality, visibility coverage, detection coverage and threat actor behaviours. All of which can help, in different ways, to get more resilient against attacks targeting your organisation. The DeTT&CT framework consists of a Python tool, YAML administration files, the DeTT&CT Editor and scoring tables for the different aspects.
+DeTT&CT aims to assist blue teams using ATT&CK to score and compare data log source quality, visibility coverage, detection coverage, and threat actor behaviors. All of which can help, in different ways, to get more resilient against attacks targeting your organization. The DeTT&CT framework consists of a Python tool, YAML administration files, the DeTT&CT Editor, and scoring tables for the different aspects.
 
 DeTT&CT provides the following functionality:
 
 * Administrate and score the quality of your data sources.
 * Get insight on the visibility you have on for example endpoints.
 * Map your detection coverage.
-* Map threat actor behaviours.
-* Compare visibility, detections and threat actor behaviours to uncover possible improvements in detection and visibility. This can help you to prioritise your blue teaming efforts.
+* Map threat actor behaviors.
+* Compare visibility, detections, and threat actor behaviors to uncover possible improvements in detection and visibility. This can help you to prioritize your blue teaming efforts.
 
 ### Add Data Sources to DeTTECT
 
-Now that we know a little more about DeTTECT lets launch it and begin to map our the data sources from LabMeINC.
+Now that we know a little more about DeTTECT lets launch it and begin to map out the data sources from LabMeINC.
 
 To begin click on the **terminal icon** at the top of the Student VM.
 
@@ -79,13 +79,13 @@ Then click **Add data source**
 
 ![](./media/dettect_add_data_source.png)
 
-We will start by adding in the first data source in the list from LabMeINC.
+We will start by adding the first data source in the list from LabMeINC.
 
 ![](./media/dettect_windows_settings1.png)
 
 1. Type **Windows event logs** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
-3. Click on **Date connected** and pick today's date. In normal circumstances you would select the date you began collecting this data source's logs. 
+3. Click on **Date connected** and pick today's date. In normal circumstances, you would select the date you began collecting this data source's logs. 
 4. Click **Available for data analytics** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively monitoring the logs. 
 5. Click **Data source enabled** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively collecting the logs. 
 6. Type **Windows** in the **Products** field and then click **Add** - This field provides a way to categorize the data sources you are collecting as certain data sources may have more than one entry depending on the data they provide.
@@ -96,7 +96,7 @@ Scroll down to the final section of settings that we can configure for this data
 ![](./media/dettect_windows_settings2.png)
 
 !!! note
-    Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
+    Please note that every organization will vary in the answers to these questions and your answers will vary between each data source.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
     * **Set setting to 3**
@@ -117,13 +117,13 @@ Click **Add data source**
 
 ![](./media/dettect_add_another_data_source.PNG)
 
-Lets proceed to add the Endpoint Security logs. 
+Let us proceed to add the Endpoint Security logs. 
 
 ![](./media/dettect_antivirus_settings1.PNG)
 
 1. Type **Anti-virus** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
-3. Click on **Date connected** and pick today's date. In normal circumstances you would select the date you began collecting this data source's logs. 
+3. Click on **Date connected** and pick today's date. In normal circumstances, you would select the date you began collecting this data source's logs. 
 4. Click **Available for data analytics** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively monitoring the logs. 
 5. Click **Data source enabled** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively collecting the logs. 
 6. Type **Endpoint Security** in the **Products** field and then click **Add** - This field provides a way to categorize the data sources you are collecting as certain data sources may have more than one entry depending on the data they provide.
@@ -134,7 +134,7 @@ Scroll down to the final section of settings that we can configure for this data
 ![](./media/dettect_antivirus_settings2.PNG)
 
 !!! note
-    Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
+    Please note that every organization will vary in the answers to these questions and your answers will vary between each data source.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
     * **Set setting to 4**
@@ -155,13 +155,13 @@ Click **Add data source**
 
 ![](./media/dettect_add_another_data_source.PNG)
 
-Lets proceed to add the Linux logs. 
+Let us proceed to add the Linux logs. 
 
 ![](./media/dettect_linux_settings1.PNG)
 
 1. Type **Authentication** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
-3. Click on **Date connected** and pick today's date. In normal circumstances you would select the date you began collecting this data source's logs. 
+3. Click on **Date connected** and pick today's date. In normal circumstances, you would select the date you began collecting this data source's logs. 
 4. Click **Available for data analytics** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively monitoring the logs. 
 5. Click **Data source enabled** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively collecting the logs. 
 6. Type **Linux** in the **Products** field and then click **Add** - This field provides a way to categorize the data sources you are collecting as certain data sources may have more than one entry depending on the data they provide.
@@ -172,7 +172,7 @@ Scroll down to the final section of settings that we can configure for this data
 ![](./media/dettect_linux_settings2.PNG)
 
 !!! note
-    Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
+    Please note that every organization will vary in the answers to these questions and your answers will vary between each data source.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
     * **Set setting to 3**
@@ -185,7 +185,7 @@ Scroll down to the final section of settings that we can configure for this data
 5. Retention - How long are the logs retained? 
     * **Set setting to 3**
 
-With the Linux logs they are actually collecting more than just **Authentication Logs** from these systems. We will need to add in the additional logs they are collecting from this data source. 
+With the Linux logs, they are actually collecting more than just **Authentication Logs** from these systems. We will need to add in the additional logs they are collecting from this data source. 
 
 Click **Add data source**
 
@@ -195,7 +195,7 @@ Click **Add data source**
 
 1. Type **Web logs** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
-3. Click on **Date connected** and pick today's date. In normal circumstances you would select the date you began collecting this data source's logs. 
+3. Click on **Date connected** and pick today's date. In normal circumstances, you would select the date you began collecting this data source's logs. 
 4. Click **Available for data analytics** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively monitoring the logs. 
 5. Click **Data source enabled** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively collecting the logs. 
 6. Type **Linux** in the **Products** field and then click **Add** - This field provides a way to categorize the data sources you are collecting as certain data sources may have more than one entry depending on the data they provide.
@@ -206,7 +206,7 @@ Scroll down to the final section of settings that we can configure for this data
 ![](./media/dettect_linux_settings2.PNG)
 
 !!! note
-    Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
+    Please note that every organization will vary in the answers to these questions and your answers will vary between each data source.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
     * **Set setting to 3**
@@ -227,13 +227,13 @@ Click **Add data source**
 
 ![](./media/dettect_add_another_data_source.PNG)
 
-Lets proceed to add the Network Device logs. 
+Let's proceed to add the Network Device logs. 
 
 ![](./media/dettect_network_settings1.PNG)
 
 1. Type **Network device logs** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
-3. Click on **Date connected** and pick today's date. In normal circumstances you would select the date you began collecting this data source's logs. 
+3. Click on **Date connected** and pick today's date. In normal circumstances, you would select the date you began collecting this data source's logs. 
 4. Click **Available for data analytics** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively monitoring the logs. 
 5. Click **Data source enabled** This option defaults to `No` but you can change it to `Yes` as LabMeINC is actively collecting the logs. 
 6. Type **Network Devices** in the **Products** field and then click **Add** - This field provides a way to categorize the data sources you are collecting as certain data sources may have more than one entry depending on the data they provide.
@@ -244,7 +244,7 @@ Scroll down to the final section of settings that we can configure for this data
 ![](./media/dettect_network_settings2.PNG)
 
 !!! note
-    Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
+    Please note that every organization will vary in the answers to these questions and your answers will vary between each data source.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
     * **Set setting to 2**
@@ -278,7 +278,7 @@ python /opt/DeTTECT/dettect.py ds -fd /opt/DeTTECT/input/data-sources-new.yaml -
 ```
 
 !!! warning
-    By default DeTTECT will save the file to your Downloads folder on the Student VM. If you move this file or if you fail to save it the above command will not work. Please verify that the file does exist prior to running the command. 
+    By default, DeTTECT will save the file to your Downloads folder on the Student VM. If you move this file or if you fail to save it the above command will not work. Please verify that the file does exist prior to running the command. 
     
 Once the script runs successfully there should now be a file in **/home/student/Downloads** called **data_source_example.json** 
 
@@ -318,9 +318,9 @@ The file will still load successfully.
 
 ![](./media/navigator_data_sources.PNG)
 
-The result will be MITRE Navigator showing a map of the visibility LabMeINC's data sources provide against the MITRE framework. This is very beneficial as we can clearly see techniques that LabMeINC is vulnerable to. The next step would be to evaluate LabMeINC and determine what are the most common attack vectors used against them as they are a Health Organization. This would narrow down which techniques we would recommend they gain additional visiability and detection capabilities. 
+The result will be MITRE Navigator showing a map of the visibility LabMeINC's data sources provide against the MITRE framework. This is very beneficial as we can clearly see techniques that LabMeINC is vulnerable to. The next step would be to evaluate LabMeINC and determine what are the most common attack vectors used against them as they are a Health Organization. This would narrow down which techniques we would recommend they gain additional visibility and detection capabilities. 
 
-Just like LabMeINC many organizations have similar visibility and often feel stuck due to limited resources and staff. Over the course of this class we will be walking through many detection techniques that with minimal effort will allow for you to level up your visibility and detection even with these minimal data sources. To give you a sneak peak at what this will look like we have created a second .JSON file that includes these additional techniques which will be covered in the class. Lets compare this against the file we generated for LabMeINC.
+Just like LabMeINC, many organizations have similar visibility and often feel stuck due to limited resources and staff. Over the course of this class, we will be walking through many detection techniques that with minimal effort will allow you to level up your visibility and detection even with these minimal data sources. To give you a sneak peek at what this will look like we have created a second .JSON file that includes these additional techniques which will be covered in the class. Let us compare this against the file we generated for LabMeINC.
 
 Click on the **+** sign next to the layer tab.
 
@@ -346,10 +346,10 @@ The file will still load successfully.
 
 ![](./media/data_sources_leveled_up.PNG)
 
-Compare the two tabs now. You can easily see that by strategically adding in key data sources and detection capabilities LabMEINC would be able to level up their overall security. Now would be a great time to begin to map out your organization's visibility and detection capbailiities. How do you stack up against LabMeINC?
+Compare the two tabs now. You can easily see that by strategically adding in key data sources and detection capabilities LabMEINC would be able to level up their overall security. Now would be a great time to begin to map out your organization's visibility and detection capabilities. How do you stack up against LabMeINC?
 
 ## Lab Conclusion
 
-In this lab, you reviewed the functionality of the DeTTECT tool and used it to map out data source visibility and detection capabilities. From that exercise you were able to visualize the data source against the MITRE Framework to evaluate LabMeINC's current capability to see and detect evil within their environment. 
+In this lab, you reviewed the functionality of the DeTTECT tool and used it to map out data source visibility and detection capabilities. From that exercise, you were able to visualize the data source against the MITRE Framework to evaluate LabMeINC's current capability to see and detect evil within their environment. 
 
 **DeTTECT Lab is now complete**\!
