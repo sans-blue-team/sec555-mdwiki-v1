@@ -216,14 +216,14 @@ Next, click on **Create Layer from other layers**.
 
 Type **d and not c** in the score expression and press **Create**
 
-![](./media/navigator_layers_windows-sysmon_novisibilities.PNG)
+![](./media/navigator_layers_windows-sysmon_novisibility.PNG)
 
 !!! note
     In this step we are wanting to show the techniques that exist in **d** (Sigma Rules Heatmap) but not in **c** (Windows-Sysmon).
 
 We now can see that the Windows-Sysmon provides us a majority of the visibility we needed for our Sigma rules. There still are a few techniques where we lack visibility but this is a great comparison when you are attempting to justify if it is worth implementing changes to logging levels or capabilities such as adding Sysmon to your Windows systems. 
 
-![](./media/navigator_windows-sysmon_missing_visibility.PNG)
+![](./media/navigator_windows-sysmon_missing_visibilities.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Visibility**. Click anywhere on the screen to save the new name. 
 
