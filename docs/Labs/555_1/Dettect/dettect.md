@@ -99,15 +99,15 @@ Scroll down to the final section of settings that we can configure for this data
     Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
-    **Set setting to 3**
+* **Set setting to 3**
 2. Data Field Completeness - Are all Windows logs fields being parsed?
-    **Set setting to 3**
+* **Set setting to 3**
 3. Timeliness - How quickly are the logs received and ingested into the SIEM?
-    **Set setting to 4**
+* **Set setting to 4**
 4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-    **Set setting to 2**
+* **Set setting to 2**
 5. Retention - How long are the logs retained? 
-    **Set setting to 3**
+* **Set setting to 3**
 
 Now that we are finished with configuring the settings for Windows lets proceed to map the next data source.
 
