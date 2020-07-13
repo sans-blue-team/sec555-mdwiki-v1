@@ -1,4 +1,4 @@
-Exercise 1.1 - Utilizing DeTTECT to Visualize Visibility and Detection Capabilities
+DeTTECT Lab - Utilizing DeTTECT to Visualize Visibility and Detection Capabilities
 ==========================================================
 
 Objectives
