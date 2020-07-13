@@ -282,6 +282,8 @@ python /opt/DeTTECT/dettect.py ds -fd /opt/DeTTECT/input/data-sources-new.yaml -
     
 Once the script runs successfully there should now be a file in **/home/student/Downloads** called **data_source_example.json** 
 
+![](./media/dettect_file_export.PNG)
+
 ### Visualize Data Sources to the MITRE Framework 
 
 Now that we have utilized DeTTECT to create the **data_source_example.json** file we are ready to map these data sources against the MITRE Framework to determine what visibility LabMeINC actually has. 
