@@ -312,6 +312,8 @@ Now review the techniques we are lacking visibility and rules.
 
 #### Windows-Sysmon No Visibility and No Rules
 
+Lets perform the same steps for the Windows-Sysmon. 
+
 Click on the **+** sign next to the Windows Missing Alert Rules tab.
 
 ![](./media/navigator_tab.png)
