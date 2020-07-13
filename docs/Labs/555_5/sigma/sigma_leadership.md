@@ -289,6 +289,8 @@ The final step in this evaluation of your data sources against the MITRE Framewo
 
 Click on the **+** sign next to the Windows-Sysmon Missing Alert Rules tab.
 
+![](./media/navigator_tab.png)
+
 Click on **Create Layer from other layers**.
 
 ![](./media/navigator_layers.PNG)
@@ -311,6 +313,8 @@ Now review the techniques we are lacking visibility and rules.
 #### Windows-Sysmon No Visibility and No Rules
 
 Click on the **+** sign next to the Windows Missing Alert Rules tab.
+
+![](./media/navigator_tab.png)
 
 Click on **Create Layer from other layers**.
 
