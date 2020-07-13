@@ -119,7 +119,7 @@ Click **Add data source**
 
 Lets proceed to add the Endpoint Security logs. 
 
-![](./media/dettect_antivirus_settings1.png)
+![](./media/dettect_antivirus_settings1.PNG)
 
 1. Type **Anti-virus** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
@@ -131,21 +131,21 @@ Lets proceed to add the Endpoint Security logs.
 
 Scroll down to the final section of settings that we can configure for this data source. 
 
-![](./media/dettect_antivirus_settings2.png)
+![](./media/dettect_antivirus_settings2.PNG)
 
 !!! note
     Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
-    **Set setting to 4**
+* **Set setting to 4**
 2. Data Field Completeness - Are all Windows logs fields being parsed?
-    **Set setting to 1**
+* **Set setting to 1**
 3. Timeliness - How quickly are the logs received and ingested into the SIEM?
-    **Set setting to 3**
+* **Set setting to 3**
 4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-    **Set setting to 3**
+* **Set setting to 3**
 5. Retention - How long are the logs retained? 
-    **Set setting to 1**
+* **Set setting to 1**
 
 Now that we are finished with configuring the settings for Endpoint Security lets proceed to map the next data source.
 
@@ -157,7 +157,7 @@ Click **Add data source**
 
 Lets proceed to add the Linux logs. 
 
-![](./media/dettect_linux_settings1.png)
+![](./media/dettect_linux_settings1.PNG)
 
 1. Type **Authentication** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
@@ -169,21 +169,21 @@ Lets proceed to add the Linux logs.
 
 Scroll down to the final section of settings that we can configure for this data source. 
 
-![](./media/dettect_linux_settings2.png)
+![](./media/dettect_linux_settings2.PNG)
 
 !!! note
     Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
-    **Set setting to 3**
+* **Set setting to 3**
 2. Data Field Completeness - Are all Windows logs fields being parsed?
-    **Set setting to 2**
+* **Set setting to 2**
 3. Timeliness - How quickly are the logs received and ingested into the SIEM?
-    **Set setting to 2**
+* **Set setting to 2**
 4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-    **Set setting to 3**
+* **Set setting to 3**
 5. Retention - How long are the logs retained? 
-    **Set setting to 3**
+* **Set setting to 3**
 
 With the Linux logs they are actually collecting more than just **Authentication Logs** from these systems. We will need to add in the additional logs they are collecting from this data source. 
 
@@ -191,7 +191,7 @@ Click **Add data source**
 
 ![](./media/dettect_add_another_data_source.PNG)
 
-![](./media/dettect_linux_settings3.png)
+![](./media/dettect_linux_settings3.PNG)
 
 1. Type **Web logs** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
@@ -203,21 +203,21 @@ Click **Add data source**
 
 Scroll down to the final section of settings that we can configure for this data source. 
 
-![](./media/dettect_linux_settings2.png)
+![](./media/dettect_linux_settings2.PNG)
 
 !!! note
     Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
-    **Set setting to 3**
+* **Set setting to 3**
 2. Data Field Completeness - Are all Windows logs fields being parsed?
-    **Set setting to 2**
+* **Set setting to 2**
 3. Timeliness - How quickly are the logs received and ingested into the SIEM?
-    **Set setting to 2**
+* **Set setting to 2**
 4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-    **Set setting to 3**
+* **Set setting to 3**
 5. Retention - How long are the logs retained? 
-    **Set setting to 3**
+* **Set setting to 3**
 
 Now that we are finished with configuring the settings for Linux lets proceed to map the next data source.
 
@@ -229,7 +229,7 @@ Click **Add data source**
 
 Lets proceed to add the Network Device logs. 
 
-![](./media/dettect_network_settings1.png)
+![](./media/dettect_network_settings1.PNG)
 
 1. Type **Network device logs** into the Data source field. Click the **Add** button to the right.
 2. Click on **Date registered** and pick today's date.
@@ -241,25 +241,25 @@ Lets proceed to add the Network Device logs.
 
 Scroll down to the final section of settings that we can configure for this data source. 
 
-![](./media/dettect_network_settings2.png)
+![](./media/dettect_network_settings2.PNG)
 
 !!! note
     Please note that every organization will vary in the answers to these questions and your answers will vary between each data sources.
 
 1. Device Completeness - Are all Windows devices sending their logs to the SIEM?
-    **Set setting to 2**
+* **Set setting to 2**
 2. Data Field Completeness - Are all Windows logs fields being parsed?
-    **Set setting to 2**
+* **Set setting to 2**
 3. Timeliness - How quickly are the logs received and ingested into the SIEM?
-    **Set setting to 3**
+* **Set setting to 3**
 4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-    **Set setting to 1**
+* **Set setting to 1**
 5. Retention - How long are the logs retained? 
-    **Set setting to 3**
+* **Set setting to 3**
 
 We now have added all of the data sources for LabMeINC and now it is time to save the file and let DeTTECT do its magic. 
 
-![](./media/dettect_save_file.png)
+![](./media/dettect_save_file.PNG)
 
 Click **Save YAML file** 
 
