@@ -48,7 +48,7 @@ To begin click on the **terminal icon** at the top of the Student VM.
 **Copy** and **Paste** the following command in the terminal window and **Press Enter**
 
 ```bash
-docker run --rm -p 8080:8080 -v /labs/threatmodeling/output:/opt/DeTTECT/output -v /labs/threatmodeling/input:/opt/DeTTECT/input --name dettect -it rabobankcdc/dettect:v1.3 /bin/bash
+docker run --rm -p 8080:8080 -v /home/student/Downloads:/opt/DeTTECT/output -v /home/student/Downloads:/opt/DeTTECT/input --name dettect -it rabobankcdc/dettect:v1.3 /bin/bash
 ```
 !!! note
     This command will run the DeTTECT image inside a docker container, and will map the **/labs/threatmodeling/input** and **/labs/threatmodeling/output** on your VM to **/opt/DeTTECT/input** and **/opt/DeTTECT/output** inside the container, respectively. It will also map TCP port 8080 on your VM to port 8080 on the container.
@@ -263,7 +263,27 @@ We now have added all of the data sources for LabMeINC and now it is time to sav
 
 Click **Save YAML file** 
 
+#### Convert YAML file to .JSON
+
+With the YAML file now saved it is time to utilize DeTTECT to convert the YAML file to .JSON.
+
+Go back to your terminal window and press **Enter**. You should see the following command prompt. 
+
+![](./media/dettect_command_prompt.PNG)
+
+**Copy** and **Paste** the following command into the Terminal Windows and press **Enter**
+
+```bash
+python /opt/DeTTECT/dettect.py ds -fd /opt/DeTTECT/input/data-sources-new.yaml -l
+```
+
+!!! warning
+    By default DeTTECT will save the file to your Downloads folder on the Student VM. If you move this file or if you fail to save it the above command will not work. Please verify that the file does exist prior to running the command. 
+    
+Once the script runs successfully there should now be a file in **/home/student/Downloads** called **data_source_example.json** 
 
 ### Visualize Data Sources to the MITRE Framework 
+
+Now that we have utilized DeTTECT to create the **data_source_example.json** file we are ready to map these data sources against the MITRE Framework to determine what visibility LabMeINC actually has. 
 
 
