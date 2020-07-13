@@ -329,9 +329,12 @@ not b and not d
 !!! note
     For the purpose of this step, we are wanting to show the techniques that do not exist in **b** (Windows) and do not exist in **d** (Sigma Rules Heatmap).
     
-This layer shows us where we have no visibility or rules for this data source. 
+This layer shows us where we have no visibility or rules for this data source.
 
 ![](./media/navigator_windows_novisibility_norules.PNG)
+
+!!! warning
+	The color coding on this layer is confusing. In this case, the red techniques mean there is a data source or alert in existance. A white background means there is no data source or alert in existance. If it helps, you can right click and select **select annotated** and then under **technique controls** select **background color** and change the color to something like green. Alternatively, you can select **select unannotated** and only change the colors for the cells that have no data sources or alerts. It may make sense to change unannotated to red and annotated to white. This is based on your preference.
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
@@ -365,6 +368,9 @@ not c and not d
 This layer shows us where we have no visibility or rules covered by Windows with Sysmon enabled.
 
 ![](./media/navigator_windows_novisibility_norules.PNG)
+
+!!! warning
+	The color coding on this layer is confusing. In this case, the red techniques mean there is a data source or alert in existance. A white background means there is no data source or alert in existance. If it helps, you can right click and select **select annotated** and then under **technique controls** select **background color** and change the color to something like green. Alternatively, you can select **select unannotated** and only change the colors for the cells that have no data sources or alerts. It may make sense to change unannotated to red and annotated to white. This is based on your preference.
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
