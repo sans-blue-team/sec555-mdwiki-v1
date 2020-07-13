@@ -336,7 +336,15 @@ Now, click on **Upload from Local**.
 
 Then navigate to /labs/dettect **data_sources_leveled_up.json** file.
 
-NEED SCREENSHOTS FOR BROWSING TO THE ABOVE FILE ON THE STUDENT VM
+![](./media/navigator_browse.PNG)
+
+![](./media/navigator_browse2.PNG)
+
+![](./media/navigator_browse3.PNG)
+
+![](./media/navigator_browse4.PNG)
+
+![](./media/navigator_browse5.PNG)
 
 You may receive a warning message about the **layer version**. Just click **OK**
 
