@@ -18,7 +18,7 @@ Log into the Sec-555 VM
 
 ## Exercises
 
-### Explore logging capabilities and visibility against the MITRE Attack framework
+### Explore logging capabilities and visibility with MITRE
 
 One of the most important exercises that often gets overlooked, is evaluating your organization's visibility. To often security appliances are purchased to fill niche gaps for visibility but rarely is there a cohesive evaluation of all data sources. Let us look at a key data source in almost every organization - **Windows Logs**. 
 

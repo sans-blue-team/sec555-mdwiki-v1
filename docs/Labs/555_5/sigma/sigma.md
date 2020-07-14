@@ -1,7 +1,13 @@
+# Sigma Labs
+
+## Choose Your Destiny
+
 Welcome to the Sigma lab. Choose your destiny. Please pick one of the labs below.
 
 !!! note
     This lab is the format is beta. It is a new design to test letting individuals choose a lab that conforms better to their job role. The goal is to pick one lab to perform during class. You have enough time to complete one lab exercise. The other lab(s) are to be performed at your leisure at a later time.
+
+### Engineer Role
 
 **Role**: Engineer
 
@@ -9,6 +15,8 @@ Welcome to the Sigma lab. Choose your destiny. Please pick one of the labs below
 
 
 [Sigma Lab - Engineer](sigma_engineer.md)
+
+### Leadership Role
 
 **Role**: Leadership
 
