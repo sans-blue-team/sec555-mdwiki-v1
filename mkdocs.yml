@@ -9,6 +9,37 @@ nav:
     - 'Setup Quick Nav': 'Labs/setup/quicknav.md'
     - 'Setup A': 'Labs/setup/A/sec555.setup.a.md'
     - 'Setup B': 'Labs/setup/B/sec555.setup.b.md'
+  - Resources:
+    - 'Resource Quick Nav': 'Resources/quicknav.md'
+    - 'Field Name Guidelines': 'Resources/FieldNameGuidelines.md'
+    - 'Logstash Configuration Architecture': 'Resources/LogStashConfigArch.md'
+    - 'Smart Player': 'Resources/SmartPlayer.md'
+    - 'Linux Command Line Cheat Sheet': 'Resources/LinuxCLI.md'
+    - 'Linux CLI 101': 'Resources/LinuxCLI101.md'
+    - 'SANS PowerShell Cheat Sheet': 'Resources/PowerShell.md'
+    - 'Windows Event Logs Table': 'Resources/WindowsEventLogsTable.md'
+    - 'Regular Expressions Cheat Sheet': 'Resources/regular-expressions-cheat-sheet-v1.pdf'
+  - Tools:
+    - 'Tools Quick Nav': 'Tools/quicknav.md'
+    - 'ElastAlert': 'Tools/ElastAlert.md'
+    - 'Elasticsearch': 'Tools/Elasticsearch.md'
+    - 'Flare': 'Tools/Flare.md'
+    - 'Kibana': 'Tools/Kibana.md'
+    - 'Logstash': 'Tools/Logstash.md'
+    - 'Beats': 'Tools/beats.md'
+    - 'Domain Stats': 'Tools/domain_stats.py.md'
+    - 'Freq': 'Tools/freq.py.md'
+    - 'Freq Server': 'Tools/freq_server.py.md'
+  - Instructors:
+    - 'Instructor Quick Nav': 'Instructors/quicknav.md'
+    - 'Justin Henderson': 'Instructors/JustinHenderson.md'
+    - 'John Hubbard': 'Instructors/JohnHubbard.md'
+    - 'Seth Misenar': 'Instructors/SethMisenar.md'
+    - 'Tim Garcia': 'Instructors/TimGarcia.md'
+    - 'Austin Taylor': 'Instructors/AustinTaylor.md'
+    - 'Scott Lynch': 'Instructors/ScottLynch.md'
+    - 'Craig Bowser': 'Instructors/CraigBowser.md'
+    - 'Don Murdoch': 'Instructors/DonMurdoch.md'
   - Labs:
     - 'Lab Quick Nav': 'Labs/quicknav.md'
     - 555.1:
@@ -35,6 +66,10 @@ nav:
       - 'Lab 5.1 - Alert Context': 'Labs/555_5/1/sec555.5.1.md'
       - 'Lab 5.2 - Virtual Tripwires': 'Labs/555_5/2/sec555.5.2.md'
       - 'Lab 5.3 - Beacon Detection': 'Labs/555_5/3/sec555.5.3.md'
+    - 'Role-based Labs - BETA':
+      - 'Sigma Lab - Engineer': 'Labs/555_5/sigma/sigma_engineer.md'
+      - 'Sigma Lab - Leadership': 'Labs/555_5/sigma/sigma_leadership.md'
+
 
 #theme: readthedocs
 theme:

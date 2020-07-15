@@ -2,7 +2,7 @@
 
 ## 555.1
 
-### [DeTTect Lab - Visualize Visibility and Detection Capabilities](Labs/555_1/Dettect/dettect.md)
+### [DeTTect Lab - Visualize Visibility and Detection Capabilities](555_1/Dettect/dettect.md)
 
 ### [Lab 1.1 - Introduction to SIEM Architecture](555_1/1/sec555.1.1.md)
 
