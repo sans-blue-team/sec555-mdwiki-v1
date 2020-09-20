@@ -32,7 +32,7 @@ There are two things that are **highly recommended** to do before diving in.
 To manually update the wiki content run the command below.
 
 ```bash
-$ sudo /bin/bash /scripts/wiki_up.sh
+sudo /bin/bash /scripts/wiki_up.sh
 ```
 
 ---
