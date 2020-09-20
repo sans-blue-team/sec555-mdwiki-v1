@@ -133,7 +133,7 @@ Scroll down to the final section of settings that we can configure for this data
 3. Timeliness - How quickly are the logs received and ingested into the SIEM?
     * **Set setting to 4** - A value of **4** assumes that logs are quickly being received by the SIEM. Exceptions might be laptops off the network and VPN.
 4. Consistency - Are logs ingested on a regular basis or are their large delays or outages?
-    * **Set setting to 4** - A value of **4** assumes that logs consistently reach the SIEM without delay.
+    * **Set setting to 2** - A value of **4** assumes that logs consistently reach the SIEM without delay.
 5. Retention - How long are the logs retained? 
     * **Set setting to 3** - A setting of **3** implies average retention span such as **90** days.
 
