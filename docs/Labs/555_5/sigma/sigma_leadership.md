@@ -38,7 +38,7 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /labs/sigma and select windows.json.
+Then navigate to **/labs/sigma** and select **windows.json**.
 
 ![](./media/browse.png)
 
@@ -73,7 +73,7 @@ Now, click on **Upload from Local**.
 
 ![](./media/navigator_upload.png)
 
-Then navigate to /labs/sigma and select windows-sysmon.json.
+Then navigate to **/labs/sigma** and select **windows-sysmon.json**.
 
 ![](./media/browse.png)
 
@@ -209,6 +209,10 @@ The layer that is created now shows us where we lack visibility in our **Windows
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows Missing Visibility**. Click anywhere on the screen to save the new name. 
 
+```bash
+Windows Missing Visibility
+```
+
 ![](./media/navigator_layer_rename.png)
 
 #### Windows-Sysmon Missing Visibility
@@ -239,6 +243,10 @@ We now can see that the **Windows-Sysmon** provides us a majority of the visibil
 ![](./media/navigator_windows-sysmon_missing_visibilities.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Visibility**. Click anywhere on the screen to save the new name. 
+
+```bash
+Windows-Sysmon Missing Visibility
+```
 
 ![](./media/navigator_layer_rename2.png)
 
@@ -273,6 +281,10 @@ The layer created now shows us the techniques we have visibility for but do not 
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows Missing Alert Rules**. Click anywhere on the screen to save the new name. 
 
+```bash
+Windows Missing Alert Rules
+```
+
 ![](./media/navigator_layer_rename3.png)
 
 #### Windows-Sysmon Missing Alert Rules
@@ -299,6 +311,10 @@ The layer created now shows us the techniques we have visibility for but do not 
 ![](./media/navigator_windows-sysmon_missing_alert_rules.PNG)
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon Missing Alert Rules**. Click anywhere on the screen to save the new name. 
+
+```bash
+Windows-Sysmon Missing Alert Rules
+```
 
 ![](./media/navigator_layer_rename4.png)
 
@@ -338,6 +354,10 @@ This layer shows us where we have no visibility or rules for this data source.
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
 
+```bash
+Windows No Visibility/No Rules
+```
+
 ![](./media/navigator_layer_rename5.png)
 
 Now review the techniques we are lacking visibility and rules.  
@@ -373,6 +393,10 @@ This layer shows us where we have no visibility or rules covered by Windows with
 	The color coding on this layer is confusing. In this case, the red techniques mean there is a data source or alert in existance. A white background means there is no data source or alert in existance. If it helps, you can right click and select **select annotated** and then under **technique controls** select **background color** and change the color to something like green. Alternatively, you can select **select unannotated** and only change the colors for the cells that have no data sources or alerts. It may make sense to change unannotated to red and annotated to white. This is based on your preference.
 
 Double click on the name of the new tab **layer by operation** and rename it to **Windows-Sysmon No Visibility/No Rules**. Click anywhere on the screen to save the new name. 
+
+```bash
+Windows-Sysmon No Visibility/No Rules
+```
 
 ![](./media/navigator_layer_rename6.png)
 
