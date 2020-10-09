@@ -458,8 +458,15 @@ The file will still load successfully.
 
 Compare the two tabs now. You can easily see that by strategically adding in key data sources and detection capabilities **Lab Me Inc.** would be able to level up their overall security. Now would be a great time to begin to map out your organization's visibility and detection capabilities. How do you stack up against **Lab Me Inc.**?
 
+## <div id="video">Step-by-Step Video Instructions</div>
+
+<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_1/dettect_lab/dettect_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
 ## Lab Conclusion
 
 In this lab, you reviewed the functionality of the DeTTECT tool and used it to map out data source visibility and detection capabilities. From that exercise, you were able to visualize the data source against the MITRE Framework to evaluate **Lab Me Inc.**'s current capability to see and detect evil within their environment. 
 
 **DeTTECT Lab is now complete**\!
+
+<link href="../../../../Videos/555_1/dettect_lab/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
+<link href="../../../../Videos/555_1/dettect_lab/dettect_lab_embed.css" rel="stylesheet" type="text/css">

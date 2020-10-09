@@ -24,3 +24,10 @@ Welcome to the Sigma lab. Choose your destiny. Please pick one of the labs below
 
 
 [Sigma Lab - Leadership](sigma_leadership.md)
+
+## <div id="video">Sigma Lab Introduction</div>
+
+<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_5/sigma_lab_intro/sigma_lab_intro_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+<link href="../../../../Videos/555_5/sigma_lab_intro/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
+<link href="../../../../Videos/555_5/sigma_lab_intro/sigma_lab_intro_embed.css" rel="stylesheet" type="text/css">

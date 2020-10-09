@@ -436,6 +436,13 @@ The **dl.google.com** alert probably is the user **JustinHenderson** using **iex
 
 The **trackmypackage-com.biz** alert probably is the user **JustinHenderson** downloading a PDF using **msedge.exe**. The PDF is specifically called **shipment_notification_555.pdf**. This alert cannot yet be confirmed as malicious, but the additional context leans towards it being a potential phishing PDF.
 
+## <div id="video">Step-by-Step Video Instructions</div>
+
+<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_2/enrichment_lab/enrichment_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
 ## Lab Conclusion
 
 **Enrichment Lab is now complete**\!
+
+<link href="../../../../Videos/555_2/enrichment_lab/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
+<link href="../../../../Videos/555_2/enrichment_lab/enrichment_lab_embed.css" rel="stylesheet" type="text/css">

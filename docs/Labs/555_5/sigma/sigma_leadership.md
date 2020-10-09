@@ -406,8 +406,15 @@ While this final step in the process of evaluating visibility and detection capa
 
 **DEFEND THE THINGS!!!**
 
+## <div id="video">Step-by-Step Video Instructions</div>
+
+<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_5/sigma_leadership_lab/sigma_leadership_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
 ## Lab Conclusion
 
 In the lab, you were able to review the visibility and detection capabilities for the Windows data sources. You were able to see that enhancing a data source often will reap better visibility in your environment. However, even with the visibility and detection, you found that you still need to review and evaluate gaps in each of your data sources and well as alert rules to ensure you have the proper measures in place to protect your organization.
 
 **Sigma Lab - Leadership is now complete**\!
+
+<link href="../../../../Videos/555_5/sigma_leadership_lab/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
+<link href="../../../../Videos/555_5/sigma_leadership_lab/sigma_leadership_lab_embed.css" rel="stylesheet" type="text/css">
