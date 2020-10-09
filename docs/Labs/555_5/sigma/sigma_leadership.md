@@ -406,9 +406,9 @@ While this final step in the process of evaluating visibility and detection capa
 
 **DEFEND THE THINGS!!!**
 
-## <div id="video">Step-by-Step Video Instructions</div>
+## Step-by-Step Video Instructions
 
-<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_5/sigma_leadership_lab/sigma_leadership_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe width="534px" height="300px" class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_5/sigma_leadership_lab/sigma_leadership_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 ## Lab Conclusion
 
@@ -417,4 +417,3 @@ In the lab, you were able to review the visibility and detection capabilities fo
 **Sigma Lab - Leadership is now complete**\!
 
 <link href="../../../../Videos/555_5/sigma_leadership_lab/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
-<link href="../../../../Videos/555_5/sigma_leadership_lab/sigma_leadership_lab_embed.css" rel="stylesheet" type="text/css">

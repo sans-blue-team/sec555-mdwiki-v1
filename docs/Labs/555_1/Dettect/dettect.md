@@ -458,9 +458,9 @@ The file will still load successfully.
 
 Compare the two tabs now. You can easily see that by strategically adding in key data sources and detection capabilities **Lab Me Inc.** would be able to level up their overall security. Now would be a great time to begin to map out your organization's visibility and detection capabilities. How do you stack up against **Lab Me Inc.**?
 
-## <div id="video">Step-by-Step Video Instructions</div>
+## Step-by-Step Video Instructions
 
-<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_1/dettect_lab/dettect_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe width="534px" height="300px" class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_1/dettect_lab/dettect_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 ## Lab Conclusion
 

@@ -439,9 +439,9 @@ The result will be MITRE Navigator showing a map of the converted Sigma rule cov
 
 ![](./media/sigma_mitre.png)
 
-## <div id="video">Step-by-Step Video Instructions</div>
+## Step-by-Step Video Instructions
 
-<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_5/sigma_engineer_lab/sigma_engineer_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe width="534px" height="300px" class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="../../../../Videos/555_5/sigma_engineer_lab/sigma_engineer_lab_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 ## Lab Conclusion
 
@@ -451,4 +451,3 @@ In this lab, you reviewed the structure of a SIGMA rule and learned how to conve
 **Sigma Lab - Engineer is now complete**\!
 
 <link href="../../../../Videos/555_5/sigma_engineer_lab/skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
-<link href="../../../../Videos/555_5/sigma_engineer_lab/sigma_engineer_lab_embed.css" rel="stylesheet" type="text/css">
