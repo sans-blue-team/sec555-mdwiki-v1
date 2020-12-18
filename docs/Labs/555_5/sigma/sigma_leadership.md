@@ -24,7 +24,7 @@ One of the most important exercises that often gets overlooked, is evaluating yo
 
 To begin **click** the link below to open MITRE ATT&CK Navigator.
 
-<a href="https://mitre-attack.github.io/attack-navigator/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
+<a href="https://mitre-attack.github.io/attack-navigator/v3/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
 
 Next, click on the **+** sign next to the layer tab.
 
