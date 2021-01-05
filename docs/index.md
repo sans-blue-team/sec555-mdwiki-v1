@@ -24,7 +24,7 @@ Note: If you are using the student VM included when taking SEC555 you have the c
 
 There are two things that are **highly recommended** to do before diving in.
 
-1. **Discover how to use the Smart Player**. Videos are played using Smart Player and there are some features you may not know exist without checking [out this guide](/Resources/SmartPlayer.md). The videos created in the wiki took a tremendous amount of time to put together due to adding many features that Smart Player allows such as searching for any word spoken by the presenter and jumping to that section of the video.
+1. **Discover how to use the Smart Player**. Videos are played using Smart Player and there are some features you may not know exist without checking [out this guide](/Resources/SmartPlayer/). The videos created in the wiki took a tremendous amount of time to put together due to adding many features that Smart Player allows such as searching for any word spoken by the presenter and jumping to that section of the video.
 2. If you are a SEC555 student, **enable automatic updates of the wiki and lab content**
 
 ### How to manually update the wiki
