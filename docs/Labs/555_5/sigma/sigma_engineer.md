@@ -407,7 +407,7 @@ python3 /labs/sigma/elastalert2attack --rules-directory /labs/sigma/elastalert/t
 
 If you have internet access you can import the heatmap into MITRE ATT&CK Navigator to see your rule coverage. Try doing so by browsing to the link below.
 
-<a href="https://mitre-attack.github.io/attack-navigator/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
+<a href="https://mitre-attack.github.io/attack-navigator/v3/enterprise/" target="_blank">MITRE ATT&CK Navigator</a>
 
 Next, click on the **+** sign next to the Layer tab.
 
